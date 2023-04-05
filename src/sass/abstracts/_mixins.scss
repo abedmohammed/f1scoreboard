@@ -1,6 +1,34 @@
-@mixin style-text($color){
-	font-size: 20px;
-	color: $color;
+@mixin style-text($color) {
+  font-size: 20px;
+  color: $color;
 }
 
-// @include style-text(color)
+@mixin style-link($color) {
+  position: relative;
+  text-decoration: none;
+  color: $color;
+  transition: all 0.4s;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: $color;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    transition: all 0.4s;
+  }
+
+  &:hover:not(&--active) {
+    &::after {
+      width: 30%;
+    }
+  }
+
+  &--active {
+    &::after {
+      width: 100%;
+    }
+  }
+}

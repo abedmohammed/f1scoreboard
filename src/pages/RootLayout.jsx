@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
 
+import MainNavigation from "../components/MainNavigation";
+
 function RootLayout() {
   return (
     <>
       <main>
-        <p>Outlet</p>
         <Outlet />
+        <MainNavigation />
       </main>
     </>
   );

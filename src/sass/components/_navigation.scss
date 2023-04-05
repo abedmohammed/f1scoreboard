@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+.navigation {
+  height: rem(60px);
+  width: 100%;
+
+  position: fixed;
+  bottom: 0;
+
+  background-color: var(--color-highlight);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: rem(30px);
+
+  &__links {
+    @include style-link(var(--color-text));
+    opacity: 75%;
+    font-weight: 600;
+
+    &--active,
+    &:hover {
+      opacity: 100%;
+    }
+  }
+}

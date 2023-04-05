@@ -7,18 +7,22 @@
 }
 
 body {
-	box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-
-  min-height: 100vh;
-  min-height: 100dvh;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }

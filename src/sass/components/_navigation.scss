@@ -45,6 +45,8 @@
 
   &__link {
     @include style-link(var(--color-text));
+    font-size: rem(18px);
+    font-family: var(--font-grotesk);
     opacity: 75%;
     font-weight: 600;
     text-align: center;

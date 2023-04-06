@@ -1,7 +1,10 @@
 import React from "react";
 import { useLoaderData, json } from "react-router-dom";
+import EventCard from "../components/EventCard";
 
 import { API } from "../utility";
+
+import flag from "../assets/images/download.png";
 
 const HomePage = () => {
   const data = useLoaderData();
@@ -838,7 +841,38 @@ const HomePage = () => {
   console.log(nextRace);
   console.log(schedule);
 
-  return <main className="home"></main>;
+  return (
+    <main className="home">
+      <div className="home__country">
+        <img src={flag} alt="Bahrain flag" />
+        <h2>Bahrain</h2>
+      </div>
+      <div className="home__date">
+        <p className="text-faint">03 March 2023 - 05 March 2023</p>
+      </div>
+      <h3 className="home__title">
+        Formula 1 Gulf Air Bharfain Grand Prix 2023
+      </h3>
+      <div className="home__time">
+        <div>
+          <p>Sakhir</p>
+          <p>07:39</p>
+        </div>
+        <div className="divider" />
+        <div>
+          <p>Your Time</p>
+          <p>09:39</p>
+        </div>
+      </div>
+      <div className="home__grid">
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+      </div>
+    </main>
+  );
 };
 
 export default HomePage;

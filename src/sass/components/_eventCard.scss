@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+
+.event {
+  display: flex;
+  background-color: var(--color-card-background);
+  width: 100%;
+  max-width: rem(350px);
+  padding: rem(15px) rem(25px);
+  justify-content: space-between;
+
+  p {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  p + p {
+    border-left: solid 1px var(--color-text-faint);
+  }
+
+  p:first-child {
+    text-align: left;
+  }
+
+  p:last-child {
+    text-align: right;
+  }
+}

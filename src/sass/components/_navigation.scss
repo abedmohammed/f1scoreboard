@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .navigation {
-  height: rem(60px);
+  height: rem(80px);
   width: 100%;
 
   position: fixed;
@@ -10,15 +10,43 @@
   background-color: var(--color-highlight);
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
-  padding: rem(30px);
+  padding-left: rem(50px);
+  padding-right: rem(50px);
+
+  &__logo {
+    width: rem(160px);
+    height: rem(160px);
+
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../assets/gifs/f1logobg.gif");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      mask-image: url("../../assets/images/f1logo.png");
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+  }
 
   &__links {
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+  }
+
+  &__link {
     @include style-link(var(--color-text));
     opacity: 75%;
     font-weight: 600;
+    text-align: center;
 
     &--active,
     &:hover {

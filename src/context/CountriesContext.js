@@ -34,6 +34,8 @@ export const CountriesContextProvider = ({ children }) => {
   };
 
   const getTimezone = (country) => {
+    console.log(country);
+    console.log(timeZones);
     return `Etc/GMT${timeZones[country]
       ?.substring(3)
       .replaceAll("0", "")

@@ -11,7 +11,7 @@ const HomePage = () => {
   const { getFlag, getTimezone, timeZones } = useContext(CountriesContext);
   const userLocale = navigator.language;
 
-  const data = useLoaderData();
+  // const data = useLoaderData();
   // const racesList = data.MRData.RaceTable.Races;
   const racesList = [
     {
@@ -821,25 +821,28 @@ const HomePage = () => {
     },
   ];
 
-  const schedule = racesList.map((race) => {
-    return {
-      name: race.raceName,
-      date: race.date,
-      country: race.Circuit.Location.country,
-    };
+  const now = new Date();
+
+  let nextRaceIndex = 0;
+  racesList.forEach((race, i) => {
+    console.log(new Date(race.date));
+    console.log(now);
+    if (new Date(race.date) > now && nextRaceIndex === 0) {
+      nextRaceIndex = i;
+    }
   });
 
   const nextRace = {
-    country: racesList[0].Circuit.Location.country,
-    date: racesList[0].date,
-    time: racesList[0].time,
-    name: racesList[0].raceName,
-    locale: racesList[0].Circuit.Location.locality,
-    firstPractice: racesList[0].FirstPractice,
-    secondPractice: racesList[0].SecondPractice,
-    thirdPractice: racesList[0].ThirdPractice,
-    sprint: racesList[0].Sprint,
-    qualifying: racesList[0].Qualifying,
+    country: racesList[nextRaceIndex].Circuit.Location.country,
+    date: racesList[nextRaceIndex].date,
+    time: racesList[nextRaceIndex].time,
+    name: racesList[nextRaceIndex].raceName,
+    locale: racesList[nextRaceIndex].Circuit.Location.locality,
+    firstPractice: racesList[nextRaceIndex].FirstPractice,
+    secondPractice: racesList[nextRaceIndex].SecondPractice,
+    thirdPractice: racesList[nextRaceIndex].ThirdPractice,
+    sprint: racesList[nextRaceIndex].Sprint,
+    qualifying: racesList[nextRaceIndex].Qualifying,
   };
 
   const getDate = (event) => {
@@ -849,9 +852,6 @@ const HomePage = () => {
   const localDate = (event, options) => {
     return new Intl.DateTimeFormat(userLocale, options).format(getDate(event));
   };
-
-  console.log(nextRace);
-  console.log(schedule);
 
   return (
     <main className="home">
@@ -866,7 +866,7 @@ const HomePage = () => {
             month: "long",
             year: "numeric",
           })}
-          -{" "}
+          {" - "}
           {localDate(nextRace, {
             day: "2-digit",
             month: "long",
@@ -879,7 +879,7 @@ const HomePage = () => {
         <div>
           <p>{nextRace.locale}</p>
           <p>
-            {timeZones !== [] &&
+            {timeZones.length !== 0 &&
               localDate(nextRace, {
                 hour: "numeric",
                 minute: "numeric",

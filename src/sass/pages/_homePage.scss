@@ -1,11 +1,13 @@
 @use "../abstracts/" as *;
 
 .home {
-  margin: rem(50px) auto 0 auto;
-  padding: rem(50px) rem(100px);
+  $top-margin: 100px;
+  $top-padding: 50px;
+  margin: rem($top-margin) auto 0 auto;
+  padding: rem($top-padding) rem(100px);
   width: 60vw;
-  height: calc(100vh - 100px);
-  height: calc(100dvh - 100px);
+  height: calc(100vh - $top-margin - $top-padding);
+  height: calc(100dvh - $top-margin - $top-padding);
   background-color: var(--color-section-background);
 
   text-align: center;
@@ -66,13 +68,17 @@
     margin-top: rem(50px);
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(rem(200px), rem(320px)));
+    grid-template-columns: repeat(2, minmax(rem(250px), rem(320px)));
     gap: rem(25px);
     justify-content: center;
 
     & > *:last-child {
       grid-column: 1 / -1;
       justify-self: center;
+    }
+
+    @media only screen and (max-width: 80em) {
+      grid-template-columns: minmax(rem(250px), rem(320px));
     }
   }
 }

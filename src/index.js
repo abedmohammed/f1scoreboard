@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './sass/style.scss'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { CountriesContextProvider } from "./context/CountriesContext";
+
+import "./sass/style.scss";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <CountriesContextProvider>
+      <App />
+    </CountriesContextProvider>
   </React.StrictMode>
 );

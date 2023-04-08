@@ -1,0 +1,79 @@
+@use "../abstracts/" as *;
+
+.table {
+  &__row {
+    height: rem(60px);
+    display: flex;
+    align-items: center;
+    padding: 0 rem(20px);
+    transition: all 0.2s;
+
+    cursor: pointer;
+
+    &:nth-child(odd) {
+      background-color: var(--color-table-alt-1);
+    }
+
+    &:nth-child(even) {
+      background-color: var(--color-table-alt-2);
+    }
+
+    &:hover {
+      background-color: #383838;
+      padding-bottom: 5px;
+
+      .table__arrow::before {
+        transform: rotate(45deg) translate(3px, -3px);
+      }
+    }
+  }
+
+  &__position {
+    flex-basis: rem(30px);
+    // font-size: rem(20px);
+    font-weight: 600;
+    text-align: right;
+
+    padding-right: rem(15px);
+    border-right: var(--border-divider);
+  }
+
+  &__name {
+    margin-left: rem(20px);
+    flex-basis: rem(180px);
+    text-align: left;
+  }
+
+  &__subtitle {
+    margin-left: rem(40px);
+    font-size: rem(12px);
+  }
+
+  &__points {
+    margin-left: auto;
+    font-size: rem(12px);
+    background-color: var(--color-bubble);
+    padding: rem(5px) rem(15px);
+    border-radius: 999px;
+  }
+
+  &__arrow {
+    margin-left: rem(20px);
+    margin-right: rem(10px);
+
+    &::before {
+      content: "";
+      display: inline-block;
+
+      border-style: solid;
+      border-width: 2px 2px 0 0;
+
+      height: 7px;
+      width: 7px;
+
+      position: relative;
+      transform: rotate(45deg);
+      transition: all 0.2s;
+    }
+  }
+}

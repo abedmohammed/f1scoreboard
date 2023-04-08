@@ -2,11 +2,13 @@
 
 ## Standings page
 
-[ ] Create base files for page setup
-[ ] Make call for standings in loader
-[ ] Format info to usable data
-[ ] Create basic table component
-[ ] Add tab switching component that returns to the parent component the name of the selected tab
+[x] Create base files for page setup
+[x] Make call for standings in loader
+[x] Format info to usable data
+[x] Create basic table component
+[x] send array data to table component
+[x] display all elements on table
+[x] Add tab switching component that returns to the parent component the name of the selected tab
 
 <!--
 ## initialization

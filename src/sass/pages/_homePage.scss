@@ -1,16 +1,7 @@
 @use "../abstracts/" as *;
 
 .home {
-  $top-margin: 100px;
-  $top-padding: 50px;
-  margin: rem($top-margin) auto 0 auto;
-  padding: rem($top-padding) rem(100px);
   width: 60vw;
-  height: calc(100vh - $top-margin - $top-padding);
-  height: calc(100dvh - $top-margin - $top-padding);
-  background-color: var(--color-section-background);
-
-  text-align: center;
 
   &__country {
     display: flex;
@@ -31,11 +22,11 @@
 
   &__date {
     margin: rem(35px) auto 0 auto;
-
+    width: 80%;
     padding-top: rem(20px);
     padding-bottom: rem(20px);
-    border-top: 1px solid var(--color-text-faint);
-    border-bottom: 1px solid var(--color-text-faint);
+    border-top: var(--border-divider);
+    border-bottom: var(--border-divider);
   }
 
   &__title {

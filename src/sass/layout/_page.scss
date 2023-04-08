@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+
+.page {
+  $top-margin: 100px;
+  $top-padding: 50px;
+  margin: rem($top-margin) auto 0 auto;
+  padding-top: rem($top-padding);
+  max-width: rem(1420px);
+  width: 80vw;
+  min-height: calc(100vh - $top-margin - $top-padding);
+  min-height: calc(100dvh - $top-margin - $top-padding);
+  padding-bottom: rem(80px);
+  background-color: var(--color-section-background);
+
+  text-align: center;
+
+  &__title {
+    font-size: rem(35px);
+    font-family: var(--font-grotesk);
+    font-weight: 500;
+    padding-bottom: $top-padding;
+    border-bottom: var(--border-divider);
+  }
+}

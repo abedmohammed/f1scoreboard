@@ -5,6 +5,11 @@ html {
   --color-section-background: #0f0f0f;
   --color-card-background: #181817;
 
+  --color-table-alt-1: #222222;
+  --color-table-alt-2: #151616;
+
+  --color-bubble: #525d65;
+
   --color-text: #fff;
   --color-text-faint: #8f8f8f;
   --color-divider: #585858;
@@ -12,4 +17,6 @@ html {
 
   --font-poppins: "Poppins", sans-serif;
   --font-grotesk: "Space Grotesk", sans-serif;
+
+  --border-divider: 1px solid var(--color-text-faint);
 }

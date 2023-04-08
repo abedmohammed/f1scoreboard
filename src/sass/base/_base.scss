@@ -1,3 +1,5 @@
+@use "../abstracts/" as *;
+
 body {
   background-color: var(--color-background);
 }

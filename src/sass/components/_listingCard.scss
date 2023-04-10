@@ -1,0 +1,148 @@
+@use "../abstracts/" as *;
+
+.card {
+  background-color: var(--color-card-background);
+  height: rem(300px);
+  padding: rem(10px) rem(15px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &__content {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 10px;
+
+    border-bottom: var(--border-divider-faint);
+  }
+
+  &__position {
+    font-family: var(--font-grotesk);
+    font-size: rem(26px);
+  }
+
+  &__points {
+    font-family: var(--font-grotesk);
+    color: var(--color-highlight);
+    font-weight: 600;
+    font-size: rem(18px);
+    text-align: right;
+
+    p:first-child {
+      margin-bottom: -6px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: var(--border-divider-faint);
+  }
+
+  &__name {
+    font-size: rem(18px);
+    font-family: var(--font-grotesk);
+  }
+
+  &__flag {
+    width: rem(35px);
+  }
+
+  &__team {
+    padding-top: rem(10px);
+    text-align: left;
+    font-size: rem(14px);
+    font-weight: 300;
+  }
+
+  &__graphic {
+    margin-top: -20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__number {
+    font-family: var(--font-bakbak);
+    font-size: rem(70px);
+    font-weight: 700;
+    margin-left: rem(10px);
+    margin-bottom: rem(10px);
+  }
+
+  &__image {
+    width: rem(200px);
+  }
+
+  &__background {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  &__arrow {
+    border-color: var(--color-highlight);
+    border-style: solid;
+    border-width: 50px 50px 0 0;
+    margin: -413px auto 0 auto;
+
+    height: 450px;
+    width: 450px;
+
+    display: block;
+    transform: rotate(135deg);
+    transition: all 0.3s;
+
+    &:not(:first-child) {
+      margin-top: -365px;
+    }
+
+    &--1 {
+      opacity: 0.1;
+    }
+
+    &--2 {
+      opacity: 0.25;
+    }
+
+    &--3 {
+      opacity: 0.4;
+    }
+  }
+
+  .arrows-up {
+    .card__arrow {
+      transform: rotate(315deg);
+      margin: 90px auto 0 auto;
+
+      &:not(:first-child) {
+        margin-top: -365px;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+
+    .card__arrow {
+      &:not(:first-child) {
+        margin-top: -325px;
+      }
+    }
+  }
+}

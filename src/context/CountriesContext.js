@@ -29,8 +29,16 @@ export const CountriesContextProvider = ({ children }) => {
         let dict = {};
         data.forEach((country) => {
           if (!country.demonyms?.eng?.m) return;
-          if (dict[country.demonyms?.eng?.m]) return;
-          dict[country.demonyms?.eng?.m] = country.name.common;
+          if (
+            dict[country.demonyms?.eng?.m] &&
+            dict[country.demonyms?.eng?.m].population > country.population
+          )
+            return;
+
+          dict[country.demonyms?.eng?.m] = {
+            country: country.name.common,
+            population: country.population,
+          };
         });
         return dict;
       });

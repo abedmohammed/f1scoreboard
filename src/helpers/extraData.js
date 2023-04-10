@@ -22,6 +22,7 @@ import DEV from "../assets/images/DEV.avif";
 export const driversExtra = {
   VER: {
     image: VER,
+    number: 1,
   },
   PER: {
     image: PER,

@@ -5,6 +5,7 @@ import { CountriesContext } from "../context/CountriesContext";
 
 import { API } from "../helpers/utility";
 import { driversExtra } from "../helpers/extraData";
+import ListingCard from "../components/ListingCard";
 
 const DriversPage = () => {
   const { getFlag, getNationality } = useContext(CountriesContext);
@@ -17,24 +18,28 @@ const DriversPage = () => {
     data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
       (driver) => {
         return {
-          name: `${
-            driver.Driver.givenName
-          } ${driver.Driver.familyName.toUpperCase()}`,
-          number: driver.Driver.permanentNumber,
+          name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
+          number:
+            driversExtra[driver.Driver.code]?.number ||
+            driver.Driver.permanentNumber,
           position: driver.position,
           team: driver.Constructors[0].name,
           points: driver.points,
-          country: getNationality(driver.Driver.nationality),
-          flag: getFlag(getNationality(driver.Driver.nationality)),
+          country: getNationality(driver.Driver.nationality)?.country,
+          flag: getFlag(getNationality(driver.Driver.nationality)?.country),
           image: driversExtra[driver.Driver.code]?.image,
         };
       }
     );
 
-  console.log(drivers);
-
   return (
-    <PageWrapper className="drivers" title={`${year} Drivers`}></PageWrapper>
+    <PageWrapper className="drivers" title={`${year} Drivers`}>
+      <div className="grid-responsive">
+        {drivers.map((driver) => (
+          <ListingCard data={driver} key={driver.number} />
+        ))}
+      </div>
+    </PageWrapper>
   );
 };
 

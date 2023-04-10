@@ -3,7 +3,8 @@ html {
 
   --color-background: #090a0a;
   --color-section-background: #0f0f0f;
-  --color-card-background: #181817;
+  --color-event-background: #181817;
+  --color-card-background: #0c141b;
 
   --color-table-alt-1: #222222;
   --color-table-alt-2: #151616;
@@ -13,10 +14,13 @@ html {
   --color-text: #fff;
   --color-text-faint: #8f8f8f;
   --color-divider: #585858;
+  --color-divider-opaque: rgba(88, 88, 88, 0.5);
   --color-highlight: #e10404;
 
   --font-poppins: "Poppins", sans-serif;
   --font-grotesk: "Space Grotesk", sans-serif;
+  --font-bakbak: "Bakbak One", cursive;
 
   --border-divider: 1px solid var(--color-text-faint);
+  --border-divider-faint: 1px solid var(--color-divider-opaque);
 }

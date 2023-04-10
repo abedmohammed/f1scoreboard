@@ -5,7 +5,7 @@ import EventCard from "../components/EventCard";
 
 import { CountriesContext } from "../context/CountriesContext";
 
-import { API } from "../utility";
+import { API } from "../helpers/utility";
 
 const HomePage = () => {
   const { getFlag, getTimezone, timeZones } = useContext(CountriesContext);

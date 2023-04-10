@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { json, useLoaderData } from "react-router-dom";
+import PageWrapper from "../components/PageWrapper";
 import Table from "../components/Table";
 
-import { API } from "../utility";
+import { API } from "../helpers/utility";
 
 const StandingsPage = () => {
   const [activeTab, setActiveTab] = useState("drivers");
@@ -37,8 +38,7 @@ const StandingsPage = () => {
     );
 
   return (
-    <main className="standings page">
-      <h2 className="page__title">Current Standings</h2>
+    <PageWrapper className="standings" title="Current Standings">
       <div className="standings__tabs">
         <button
           className={`standings__tab ${
@@ -68,7 +68,7 @@ const StandingsPage = () => {
           }
         />
       </div>
-    </main>
+    </PageWrapper>
   );
 };
 

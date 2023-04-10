@@ -1,6 +1,8 @@
 # f1scoreboard todo
 
-## Standings page
+## Drivers Page
+
+<!-- ## Standings page
 
 [x] Create base files for page setup
 [x] Make call for standings in loader
@@ -8,7 +10,7 @@
 [x] Create basic table component
 [x] send array data to table component
 [x] display all elements on table
-[x] Add tab switching component that returns to the parent component the name of the selected tab
+[x] Add tab switching component that returns to the parent component the name of the selected tab -->
 
 <!--
 ## initialization

@@ -3,8 +3,9 @@ import { createContext, useEffect, useState } from "react";
 export const CountriesContext = createContext();
 
 export const CountriesContextProvider = ({ children }) => {
-  let [flags, setFlags] = useState([]);
-  let [timeZones, setTimezones] = useState([]);
+  const [flags, setFlags] = useState([]);
+  const [timeZones, setTimezones] = useState([]);
+  const [nationalities, setNationalities] = useState([]);
 
   useEffect(() => {
     const storeFlags = async () => {
@@ -24,6 +25,15 @@ export const CountriesContextProvider = ({ children }) => {
         });
         return dict;
       });
+      setNationalities(() => {
+        let dict = {};
+        data.forEach((country) => {
+          if (!country.demonyms?.eng?.m) return;
+          if (dict[country.demonyms?.eng?.m]) return;
+          dict[country.demonyms?.eng?.m] = country.name.common;
+        });
+        return dict;
+      });
     };
 
     storeFlags();
@@ -40,9 +50,20 @@ export const CountriesContextProvider = ({ children }) => {
       .slice(0, -1)}`;
   };
 
+  const getNationality = (demonym) => {
+    return nationalities[demonym];
+  };
+
   return (
     <CountriesContext.Provider
-      value={{ flags, getFlag, timeZones, getTimezone }}
+      value={{
+        flags,
+        getFlag,
+        timeZones,
+        getTimezone,
+        nationalities,
+        getNationality,
+      }}
     >
       {children}
     </CountriesContext.Provider>

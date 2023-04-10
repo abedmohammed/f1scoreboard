@@ -6,7 +6,7 @@ import NewsPage from "./pages/NewsPage";
 import StandingsPage, {
   loader as standingsLoader,
 } from "./pages/StandingsPage";
-import DriversPage from "./pages/DriversPage";
+import DriversPage, { loader as driversLoader } from "./pages/DriversPage";
 import ConstructorsPage from "./pages/ConstructorsPage";
 import RacesPage from "./pages/RacesPage";
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <StandingsPage />,
         loader: standingsLoader,
       },
-      { path: "/drivers", element: <DriversPage /> },
+      { path: "/drivers", element: <DriversPage />, loader: driversLoader },
       { path: "/constructors", element: <ConstructorsPage /> },
       { path: "/races", element: <RacesPage /> },
     ],

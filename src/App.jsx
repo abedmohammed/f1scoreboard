@@ -7,7 +7,9 @@ import StandingsPage, {
   loader as standingsLoader,
 } from "./pages/StandingsPage";
 import DriversPage, { loader as driversLoader } from "./pages/DriversPage";
-import ConstructorsPage from "./pages/ConstructorsPage";
+import ConstructorsPage, {
+  loader as constructorsLoader,
+} from "./pages/ConstructorsPage";
 import RacesPage from "./pages/RacesPage";
 
 const router = createBrowserRouter([
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
         loader: standingsLoader,
       },
       { path: "/drivers", element: <DriversPage />, loader: driversLoader },
-      { path: "/constructors", element: <ConstructorsPage /> },
+      {
+        path: "/constructors",
+        element: <ConstructorsPage />,
+        loader: constructorsLoader,
+      },
       { path: "/races", element: <RacesPage /> },
     ],
   },

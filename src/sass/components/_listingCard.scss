@@ -59,11 +59,44 @@
     width: rem(35px);
   }
 
+  &__logo {
+    width: rem(45px);
+  }
+
   &__team {
     padding-top: rem(10px);
     text-align: left;
     font-size: rem(14px);
     font-weight: 300;
+  }
+
+  &__drivers {
+    margin-top: rem(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__driver {
+    display: flex;
+    align-items: center;
+    gap: rem(15px);
+  }
+
+  &__driver-image {
+    width: rem(40px);
+    height: rem(40px);
+    background-color: rgb(12, 12, 12);
+    border: 2px solid var(--color-highlight);
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      max-width: 120%;
+      max-height: 120%;
+      width: 120%;
+      height: 120%;
+    }
   }
 
   &__graphic {
@@ -85,6 +118,14 @@
     width: rem(200px);
   }
 
+  &__car {
+    margin-top: rem(5px);
+    img {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
   &__background {
     z-index: 0;
     position: absolute;
@@ -93,23 +134,32 @@
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden;
+
+    &--right {
+      height: rem(700px);
+      transform: translate(-50%, -50%) rotate(90deg);
+
+      .card__arrow {
+        margin: -483px auto 0 auto;
+      }
+    }
   }
 
   &__arrow {
     border-color: var(--color-highlight);
     border-style: solid;
     border-width: 50px 50px 0 0;
-    margin: -413px auto 0 auto;
+    margin: -613px auto 0 auto;
 
-    height: 450px;
-    width: 450px;
+    height: 600px;
+    width: 600px;
 
     display: block;
     transform: rotate(135deg);
     transition: all 0.3s;
 
     &:not(:first-child) {
-      margin-top: -365px;
+      margin-top: -515px;
     }
 
     &--1 {
@@ -141,7 +191,13 @@
 
     .card__arrow {
       &:not(:first-child) {
-        margin-top: -325px;
+        margin-top: -485px;
+      }
+    }
+
+    .card__background--right .card__arrow {
+      &:not(:first-child) {
+        margin-top: -435px;
       }
     }
   }

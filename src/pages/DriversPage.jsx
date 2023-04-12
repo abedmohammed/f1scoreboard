@@ -43,6 +43,8 @@ const DriversPage = () => {
   );
 };
 
+export default DriversPage;
+
 export async function loader() {
   const response = await fetch(API("/f1/current/driverStandings"));
 
@@ -57,5 +59,3 @@ export async function loader() {
     return response;
   }
 }
-
-export default DriversPage;

@@ -2,9 +2,11 @@ import React from "react";
 
 const ListingCard = ({ data }) => {
   return (
-    <article className="card">
+    <article className={`card ${data.team || "card--teams"}`}>
       <div
-        className={`card__background ${data.team || "card__background--right"}`}
+        className={`card__background ${
+          data.team ? "" : "card__background--right"
+        }`}
       >
         <div className="card__arrow card__arrow--1"></div>
         <div className="card__arrow card__arrow--2"></div>

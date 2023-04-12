@@ -19,16 +19,16 @@ import ALB from "../assets/images/ALB.avif";
 import SAR from "../assets/images/SAR.avif";
 import DEV from "../assets/images/DEV.avif";
 
-import alfaImg from "../assets/images/alfa.avif";
-import alphatauriImg from "../assets/images/alphatauri.avif";
-import alpineImg from "../assets/images/alpine.avif";
-import aston_martinImg from "../assets/images/aston_martin.avif";
-import ferrariImg from "../assets/images/ferrari.avif";
-import haasImg from "../assets/images/haas.avif";
-import mclarenImg from "../assets/images/mclaren.avif";
-import mercedesImg from "../assets/images/mercedes.avif";
-import red_bullImg from "../assets/images/red_bull.avif";
-import williamsImg from "../assets/images/williams.avif";
+import alfaImg from "../assets/images/alfa.png";
+import alphatauriImg from "../assets/images/alphatauri.png";
+import alpineImg from "../assets/images/alpine.png";
+import aston_martinImg from "../assets/images/aston_martin.png";
+import ferrariImg from "../assets/images/ferrari.png";
+import haasImg from "../assets/images/haas.png";
+import mclarenImg from "../assets/images/mclaren.png";
+import mercedesImg from "../assets/images/mercedes.png";
+import red_bullImg from "../assets/images/red_bull.png";
+import williamsImg from "../assets/images/williams.png";
 
 import williamsCar from "../assets/images/williamsCar.avif";
 import alfaCar from "../assets/images/alfaCar.avif";

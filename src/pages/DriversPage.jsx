@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData, json } from "react-router-dom";
+import { json, Link, useNavigate, useRouteLoaderData } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import { CountriesContext } from "../context/CountriesContext";
 
@@ -8,12 +8,12 @@ import { driversExtra } from "../helpers/extraData";
 import ListingCard from "../components/ListingCard";
 
 const DriversPage = () => {
+  const navigate = useNavigate();
+
   const { getFlag, getNationality } = useContext(CountriesContext);
 
-  const data = useLoaderData();
-
+  const data = useRouteLoaderData("drivers");
   const year = data.MRData.StandingsTable.season;
-
   const drivers =
     data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
       (driver) => {
@@ -36,7 +36,9 @@ const DriversPage = () => {
     <PageWrapper className="drivers" title={`${year} Drivers`}>
       <div className="grid-responsive">
         {drivers.map((driver) => (
-          <ListingCard data={driver} key={driver.number} />
+          <Link to={driver.name.replaceAll(" ", "_")} key={driver.number}>
+            <ListingCard data={driver} />
+          </Link>
         ))}
       </div>
     </PageWrapper>

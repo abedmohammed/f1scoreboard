@@ -27,10 +27,10 @@ const MainNavigation = () => {
         <NavLink to="/standings" className={activeLinkClass} end>
           Standings
         </NavLink>
-        <NavLink to="/drivers" className={activeLinkClass} end>
+        <NavLink to="/drivers" className={activeLinkClass}>
           Drivers
         </NavLink>
-        <NavLink to="/constructors" className={activeLinkClass} end>
+        <NavLink to="/constructors" className={activeLinkClass}>
           Constructors
         </NavLink>
         <NavLink to="/races" className={activeLinkClass} end>

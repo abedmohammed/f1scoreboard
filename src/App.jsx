@@ -11,6 +11,7 @@ import ConstructorsPage, {
   loader as constructorsLoader,
 } from "./pages/ConstructorsPage";
 import RacesPage from "./pages/RacesPage";
+import DriverPage, { loader as driverLoader } from "./pages/DriverPage";
 
 const router = createBrowserRouter([
   {
@@ -18,19 +19,32 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage />, loader: homeLoader },
-      { path: "/news", element: <NewsPage /> },
+      { path: "news", element: <NewsPage /> },
       {
-        path: "/standings",
+        path: "standings",
         element: <StandingsPage />,
         loader: standingsLoader,
       },
-      { path: "/drivers", element: <DriversPage />, loader: driversLoader },
       {
-        path: "/constructors",
+        path: "drivers",
+        id: "drivers",
+        loader: driversLoader,
+        children: [
+          { index: true, element: <DriversPage /> },
+          {
+            path: ":driverName",
+            element: <DriverPage />,
+            loader: driverLoader,
+          },
+        ],
+      },
+
+      {
+        path: "constructors",
         element: <ConstructorsPage />,
         loader: constructorsLoader,
       },
-      { path: "/races", element: <RacesPage /> },
+      { path: "races", element: <RacesPage /> },
     ],
   },
 ]);

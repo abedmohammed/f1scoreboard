@@ -6,6 +6,7 @@ function RootLayout() {
   return (
     <>
       <main>
+        <div className="background-pattern"></div>
         <Outlet />
         <MainNavigation />
       </main>

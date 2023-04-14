@@ -23,21 +23,14 @@
   // }
 
   &__driver-image {
-    background-color: var(--color-event-background);
-    // background-color: var(--color-background);
-    background-image: radial-gradient(
-        #ffffff00 10%,
-        var(--color-event-background) 80%
-      ),
-      linear-gradient(#d3d3d346 1.6px, transparent 1.6px),
-      linear-gradient(
-        to right,
-        #d3d3d346 1.6px,
-        var(--color-event-background) 1.6px
-      );
-    background-position: center;
-    background-size: 100%, 32px 32px, 32px 32px;
     border: 1px solid var(--color-text-faint);
+
+    @include radiaGridLines(
+      var(--color-section-background),
+      rgba(212, 212, 212),
+      80%,
+      0.3
+    );
     width: rem(206px);
     transition: all 0.4s;
   }
@@ -55,19 +48,13 @@
   &__car {
     padding-top: rem(20px);
 
-    background-color: var(--color-section-background);
-    background-image: radial-gradient(
-        #ffffff00 10%,
-        var(--color-section-background) 70%
-      ),
-      linear-gradient(#d3d3d346 1.6px, transparent 1.6px),
-      linear-gradient(
-        to right,
-        #d3d3d346 1.6px,
-        var(--color-section-background) 1.6px
-      );
-    background-position: center;
-    background-size: 100%, 32px 32px, 32px 32px;
+    @include radiaGridLines(
+      var(--color-section-background),
+      rgba(212, 212, 212),
+      80%,
+      0.3
+    );
+
     transition: all 0.4s;
   }
 

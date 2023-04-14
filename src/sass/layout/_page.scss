@@ -1,15 +1,15 @@
 @use "../abstracts/" as *;
 
 .page {
-  $top-margin: 80px;
+  $top-margin: 60px;
   $top-padding: 50px;
-  margin: rem($top-margin) auto 0 auto;
-  padding-top: rem($top-padding);
+  margin: rem($top-margin) auto;
+  padding: rem($top-padding) 0;
   max-width: rem(1420px);
   width: 80vw;
-  min-height: calc(100vh - $top-margin - $top-padding);
-  min-height: calc(100dvh - $top-margin - $top-padding);
-  padding-bottom: rem(80px);
+  min-height: calc(80vh);
+  min-height: calc(80dvh);
+  margin-bottom: rem(110px);
   background-color: var(--color-section-background);
 
   text-align: center;

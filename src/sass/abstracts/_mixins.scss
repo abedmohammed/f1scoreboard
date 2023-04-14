@@ -32,3 +32,17 @@
     }
   }
 }
+
+@mixin radiaGridLines($background, $line, $background-fade-out, $line-opacity) {
+  background-color: $background;
+  // background-color: var(--color-background);
+  background-image: radial-gradient(#ffffff00, $background $background-fade-out),
+    linear-gradient(rgba($line, $line-opacity) 1.6px, transparent 1.6px),
+    linear-gradient(
+      to right,
+      rgba($line, $line-opacity) 1.6px,
+      $background 1.6px
+    );
+  background-position: center;
+  background-size: 100%, 32px 32px, 32px 32px;
+}

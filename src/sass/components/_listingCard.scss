@@ -199,6 +199,8 @@ a {
     transform: translateY(-5px);
 
     .card__arrow {
+      transform: translateY(35px) rotate(135deg);
+
       &:not(:first-child) {
         margin-top: -485px;
       }

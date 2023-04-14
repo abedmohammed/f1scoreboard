@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import { json, Link, useNavigate, useRouteLoaderData } from "react-router-dom";
+import { json, Link, useRouteLoaderData } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import { CountriesContext } from "../context/CountriesContext";
 
-import { API } from "../helpers/utility";
+import { API, getUrl } from "../helpers/utility";
 import { driversExtra } from "../helpers/extraData";
 import ListingCard from "../components/ListingCard";
 
 const DriversPage = () => {
-  const navigate = useNavigate();
-
   const { getFlag, getNationality } = useContext(CountriesContext);
 
   const data = useRouteLoaderData("drivers");
@@ -24,6 +22,7 @@ const DriversPage = () => {
             driver.Driver.permanentNumber,
           position: driver.position,
           team: driver.Constructors[0].name,
+          driverUrl: getUrl(driver.Driver.url),
           points: driver.points,
           country: getNationality(driver.Driver.nationality)?.country,
           flag: getFlag(getNationality(driver.Driver.nationality)?.country),
@@ -36,7 +35,7 @@ const DriversPage = () => {
     <PageWrapper className="drivers" title={`${year} Drivers`}>
       <div className="grid-responsive">
         {drivers.map((driver) => (
-          <Link to={driver.name.replaceAll(" ", "_")} key={driver.number}>
+          <Link to={driver.driverUrl} key={driver.number}>
             <ListingCard data={driver} />
           </Link>
         ))}

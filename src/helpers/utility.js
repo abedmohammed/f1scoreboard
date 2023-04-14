@@ -2,4 +2,8 @@ const API = (path) => {
   return `http://ergast.com/api${path}.json`;
 };
 
-export { API };
+const getUrl = (link) => {
+  return decodeURI(link.substring(link.lastIndexOf("/") + 1));
+};
+
+export { API, getUrl };

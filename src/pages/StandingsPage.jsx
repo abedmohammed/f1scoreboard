@@ -3,7 +3,7 @@ import { json, useLoaderData } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import Table from "../components/Table";
 
-import { API } from "../helpers/utility";
+import { API, getUrl } from "../helpers/utility";
 
 const StandingsPage = () => {
   const [activeTab, setActiveTab] = useState("drivers");
@@ -22,6 +22,7 @@ const StandingsPage = () => {
           position: driver.position,
           team: driver.Constructors[0].name,
           points: driver.points,
+          url: getUrl(driver.Driver.url),
         };
       }
     );
@@ -33,6 +34,7 @@ const StandingsPage = () => {
           name: team.Constructor.name,
           position: team.position,
           points: team.points,
+          url: getUrl(team.Constructor.url),
         };
       }
     );

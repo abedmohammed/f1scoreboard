@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { useLoaderData, json } from "react-router-dom";
+import { useRouteLoaderData, json, Link } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import { CountriesContext } from "../context/CountriesContext";
 
-import { API } from "../helpers/utility";
+import { API, getUrl } from "../helpers/utility";
 import { constructorsExtra } from "../helpers/extraData";
 import ListingCard from "../components/ListingCard";
 
 const ConstructorsPage = () => {
   const { getFlag, getNationality } = useContext(CountriesContext);
 
-  const data = useLoaderData();
+  const data = useRouteLoaderData("constructors");
 
   const year = data.MRData.StandingsTable.season;
 
@@ -22,6 +22,7 @@ const ConstructorsPage = () => {
           id: team.Constructor.constructorId,
           position: team.position,
           points: team.points,
+          constructorUrl: getUrl(team.Constructor.url),
           country: getNationality(team.Constructor.nationality)?.country,
           flag: getFlag(getNationality(team.Constructor.nationality)?.country),
           logo: constructorsExtra[team.Constructor.constructorId]?.logo,
@@ -31,13 +32,13 @@ const ConstructorsPage = () => {
       }
     );
 
-  console.log(constructors);
-
   return (
-    <PageWrapper className="Constructors" title={`${year} Constructors`}>
+    <PageWrapper className="constructors" title={`${year} Constructors`}>
       <div className="grid-responsive grid-responsive--big">
         {constructors.map((team) => (
-          <ListingCard data={team} key={team.position} />
+          <Link to={team.constructorUrl} key={team.name}>
+            <ListingCard data={team} key={team.position} />
+          </Link>
         ))}
       </div>
     </PageWrapper>

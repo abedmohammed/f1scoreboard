@@ -6,57 +6,29 @@ import {
   useParams,
 } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
+import useInfoBoxData from "../hooks/useInfoBoxData";
 import { CountriesContext } from "../context/CountriesContext";
 
 import { driversExtra, constructorsExtra } from "../helpers/extraData";
+import { getUrl } from "../helpers/utility";
 
 const DriverPage = () => {
   const { getFlag, getNationality } = useContext(CountriesContext);
 
   const wikiData = useLoaderData().parse.text;
+
+  const { getInfoBoxData } = useInfoBoxData(wikiData);
+
   const data = useRouteLoaderData("drivers");
   const params = useParams();
-
-  const getInfoboxData = (term) => {
-    const startStr = `${term}</th><td class="infobox-data">`;
-    const pos = wikiData.indexOf(startStr) + startStr.length;
-
-    if (wikiData.indexOf(startStr) === -1) {
-      const startStr = `${term}</a></th><td class="infobox-data">`;
-      const pos = wikiData.indexOf(startStr) + startStr.length;
-
-      if (term === "Wins") {
-        const wins = wikiData.substring(
-          pos,
-          wikiData.indexOf("</td></tr><tr>", pos)
-        );
-        if (Number.isNaN(+wins)) {
-          return wikiData
-            .substring(pos, wikiData.indexOf("</td></tr><tr>", pos))
-            .substring(wins.indexOf(">") + 1, wins.lastIndexOf("<"));
-        }
-      }
-
-      return wikiData
-        .substring(pos, wikiData.indexOf("</td></tr><tr>", pos))
-        .substring(">" + 1);
-    }
-
-    return wikiData.substring(pos, wikiData.indexOf("</td>", pos));
-  };
 
   const driverData =
     data.MRData.StandingsTable.StandingsLists[0].DriverStandings.filter(
       (driver) => {
-        return (
-          `${driver.Driver.givenName} ${driver.Driver.familyName}`.replaceAll(
-            " ",
-            "_"
-          ) === params.driverName
-        );
+        return getUrl(driver.Driver.url) === params.driverUrl;
       }
     )[0];
-  console.log(data);
+
   const year = data.MRData.StandingsTable.season;
   const driver = {
     name: `${driverData.Driver.givenName} ${driverData.Driver.familyName}`,
@@ -73,26 +45,28 @@ const DriverPage = () => {
     number:
       driversExtra[driverData.Driver.code]?.number ||
       driverData.Driver.permanentNumber,
-    totalRaces: +getInfoboxData("Entries").split(" ")[0],
-    championships: getInfoboxData("Championships")
-      .split(" (<a")
+    totalRaces: +getInfoBoxData("Entries").split(" ")[0],
+    championships: getInfoBoxData("Championships")
+      .split(" (")
       .map((entry, i) => {
         if (i === 0) {
           return entry;
         }
 
-        return entry.split("</a>, <a").map((championship) => {
-          const pos = championship.indexOf('">') + '">'.length;
-          return championship.substring(pos, pos + 4);
-        });
+        return entry
+          .replaceAll("(", "")
+          .replaceAll(")", "")
+          .split(", ")
+          .map((championship) => {
+            return championship;
+          });
       }),
-    totalPodiums: +getInfoboxData("Podiums"),
-    totalWins: +getInfoboxData("Wins"),
-    careerPoints: +getInfoboxData("Career points"),
-    polePositions: +getInfoboxData("Pole positions"),
-    fastestLaps: +getInfoboxData("Fastest laps"),
+    totalPodiums: +getInfoBoxData("Podiums"),
+    totalWins: +getInfoBoxData("Wins"),
+    careerPoints: +getInfoBoxData("Career points"),
+    polePositions: +getInfoBoxData("Pole positions"),
+    fastestLaps: +getInfoBoxData("Fastest laps"),
   };
-  console.log(driver);
 
   return (
     <PageWrapper className="driver" title={driver.name}>
@@ -156,12 +130,12 @@ const DriverPage = () => {
                 <p className="stats__data">{driver.polePositions}</p>
               </li>
               <li className="stats__row">
-                <p className="stats__title">{year} Points:</p>
-                <p className="stats__data">{driver.points}</p>
-              </li>
-              <li className="stats__row">
                 <p className="stats__title">{year} Position:</p>
                 <p className="stats__data">{driver.position}</p>
+              </li>
+              <li className="stats__row">
+                <p className="stats__title">{year} Points:</p>
+                <p className="stats__data">{driver.points}</p>
               </li>
             </ul>
           </div>
@@ -172,7 +146,11 @@ const DriverPage = () => {
           <p>World Champion:</p>
           <div className="champion__list">
             {driver.championships[1].map((championship) => {
-              return <p className="champion__year">{championship}</p>;
+              return (
+                <p key={championship} className="champion__year">
+                  {championship}
+                </p>
+              );
             })}
           </div>
         </div>
@@ -184,21 +162,10 @@ const DriverPage = () => {
 export default DriverPage;
 
 export async function loader({ params }) {
-  let driverName = params.driverName;
-
-  switch (driverName) {
-    case "Carlos_Sainz":
-      driverName = "Carlos_Sainz_Jr.";
-      break;
-    case "George_Russell":
-      driverName = "George_Russell_(racing_driver)";
-      break;
-    default:
-      break;
-  }
+  let driverUrl = params.driverUrl;
 
   const response = await fetch(
-    `https://en.wikipedia.org/w/api.php?action=parse&format=json&redirects=1&page=${driverName}&prop=text&section=0&formatversion=2&origin=*`
+    `https://en.wikipedia.org/w/api.php?action=parse&format=json&redirects=1&page=${driverUrl}&prop=text&section=0&formatversion=2&origin=*`
   );
 
   if (!response.ok) {

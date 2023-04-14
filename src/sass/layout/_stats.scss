@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+.stats {
+  padding: rem(10px);
+
+  &__row {
+    display: flex;
+    margin-top: 2%;
+  }
+
+  &__title {
+    flex: 1 0 60%;
+    text-align: left;
+    font-family: var(--font-grotesk);
+    font-weight: 600;
+  }
+
+  &__data {
+    flex: 1 0 40%;
+    text-align: left;
+  }
+}

@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .page {
-  $top-margin: 100px;
+  $top-margin: 80px;
   $top-padding: 50px;
   margin: rem($top-margin) auto 0 auto;
   padding-top: rem($top-padding);
@@ -13,6 +13,8 @@
   background-color: var(--color-section-background);
 
   text-align: center;
+
+  box-shadow: 0px -10px 50px 15px rgba(255, 0, 0, 0.07);
 
   &__title {
     font-size: rem(35px);

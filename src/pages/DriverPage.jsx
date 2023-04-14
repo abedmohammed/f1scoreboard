@@ -100,6 +100,7 @@ const DriverPage = () => {
         <div className="driver__image">
           <img src={driver.fullImage} alt={`${driver.name} standing`} />
         </div>
+
         <div className="driver__content">
           <div className="driver__header">
             <div className="driver__team">
@@ -166,6 +167,16 @@ const DriverPage = () => {
           </div>
         </div>
       </div>
+      {driver.championships[1] && (
+        <div className="champion">
+          <p>World Champion:</p>
+          <div className="champion__list">
+            {driver.championships[1].map((championship) => {
+              return <p className="champion__year">{championship}</p>;
+            })}
+          </div>
+        </div>
+      )}
     </PageWrapper>
   );
 };

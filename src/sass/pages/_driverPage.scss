@@ -55,3 +55,27 @@
     width: rem(50px);
   }
 }
+
+.champion {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(20px);
+  margin: 0 rem(140px);
+
+  p {
+    font-weight: 500;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10px);
+  }
+
+  &__year {
+    padding: 3px 15px;
+    background-color: var(--color-highlight);
+    font-family: var(--font-bakbak);
+    font-weight: 800;
+  }
+}

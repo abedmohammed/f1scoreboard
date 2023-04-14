@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+
+.constructor {
+  &__container {
+    margin: rem(30px) rem(140px);
+    display: flex;
+    gap: rem(30px);
+  }
+
+  &__figures {
+    flex: 1;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__logo {
+    padding: rem(15px);
+    margin-bottom: rem(15px);
+    background: linear-gradient(to right, #ffffff00, #ffffff, #ffffff00);
+
+    img {
+      max-height: rem(80px);
+      margin: 0 auto;
+    }
+  }
+
+  .stats {
+    border-top: var(--border-divider-faint);
+  }
+}

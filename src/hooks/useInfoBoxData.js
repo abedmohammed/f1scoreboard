@@ -28,7 +28,25 @@ const useInfoBoxData = (wikiData) => {
     return text;
   };
 
-  return { getInfoBoxData };
+  const getInfoBoxImage = () => {
+    let startStr = 'class="image"';
+
+    const pos = wikiData.indexOf(startStr) + startStr.length;
+    const firstXmlString = wikiData.substring(
+      pos,
+      wikiData.indexOf("</a>", pos)
+    );
+    const xmlString = firstXmlString.substring(firstXmlString.indexOf(">") + 1);
+
+    const node = new DOMParser().parseFromString(
+      xmlString,
+      "text/xml"
+    ).firstChild;
+
+    return "https:" + node.attributes.src.textContent;
+  };
+
+  return { getInfoBoxData, getInfoBoxImage };
 };
 
 export default useInfoBoxData;

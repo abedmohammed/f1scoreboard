@@ -2,27 +2,99 @@
 
 .constructor {
   &__container {
-    margin: rem(30px) rem(140px);
+    margin: rem(30px) rem(60px);
     display: flex;
     gap: rem(30px);
   }
 
   &__figures {
-    flex: 1;
+    flex: 1 0 45%;
+  }
+
+  &__drivers {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-bottom: rem(25px);
+  }
+
+  // &__driver {
+  //   border: 1px solid white;
+  // }
+
+  &__driver-image {
+    background-color: var(--color-event-background);
+    // background-color: var(--color-background);
+    background-image: radial-gradient(
+        #ffffff00 10%,
+        var(--color-event-background) 80%
+      ),
+      linear-gradient(#d3d3d346 1.6px, transparent 1.6px),
+      linear-gradient(
+        to right,
+        #d3d3d346 1.6px,
+        var(--color-event-background) 1.6px
+      );
+    background-position: center;
+    background-size: 100%, 32px 32px, 32px 32px;
+    border: 1px solid var(--color-text-faint);
+    width: rem(206px);
+    transition: all 0.4s;
+  }
+
+  &__driver:hover &__driver-image {
+    background-size: 100%, 36px 36px, 36px 36px;
+  }
+
+  &__driver-info {
+    font-family: var(--font-grotesk);
+    padding: rem(15px) 0;
+    display: flex;
+  }
+
+  &__car {
+    padding-top: rem(20px);
+
+    background-color: var(--color-section-background);
+    background-image: radial-gradient(
+        #ffffff00 10%,
+        var(--color-section-background) 70%
+      ),
+      linear-gradient(#d3d3d346 1.6px, transparent 1.6px),
+      linear-gradient(
+        to right,
+        #d3d3d346 1.6px,
+        var(--color-section-background) 1.6px
+      );
+    background-position: center;
+    background-size: 100%, 32px 32px, 32px 32px;
+    transition: all 0.4s;
+  }
+
+  &__car:hover {
+    background-size: 100%, 36px 36px, 36px 36px;
   }
 
   &__content {
-    flex: 1;
+    flex: 1 0 55%;
   }
 
   &__logo {
     padding: rem(15px);
     margin-bottom: rem(15px);
-    background: linear-gradient(to right, #ffffff00, #ffffff, #ffffff00);
+    background: linear-gradient(to right, #ffffff00, #ffffff3a, #ffffff00);
 
     img {
-      max-height: rem(80px);
+      max-height: rem(60px);
       margin: 0 auto;
+    }
+
+    .aston_martin,
+    .mclaren,
+    .alpine,
+    .alfa,
+    .alphatauri {
+      filter: invert(1);
     }
   }
 

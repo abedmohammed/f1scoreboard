@@ -46,7 +46,7 @@ const ConstructorPage = () => {
       constructorsExtra[constructorData.Constructor.constructorId]?.drivers,
     car: constructorsExtra[constructorData.Constructor.constructorId]?.car,
     teamChief: getInfoBoxData("principal(s)</span>"),
-    techChief: getInfoBoxData("Chief Technical Officer"),
+    techDirector: getInfoBoxData("Technical director"),
     chassis: getInfoBoxData("Chassis"),
     engine: getInfoBoxData("Engine"),
     firstEntry: getInfoBoxData("First entry"),
@@ -62,10 +62,9 @@ const ConstructorPage = () => {
   return (
     <PageWrapper className="constructor" title={constructor.name}>
       <div className="constructor__container">
-        <div className="constructor__figures"></div>
         <div className="constructor__content">
           <div className="constructor__logo">
-            <img src={constructor.fullLogo} alt="" />
+            <img className={constructor.id} src={constructor.fullLogo} alt="" />
           </div>
           <div className="stats">
             <ul>
@@ -78,16 +77,12 @@ const ConstructorPage = () => {
                 <p className="stats__data">{constructor.country}</p>
               </li>
               <li className="stats__row">
-                <p className="stats__title">Base:</p>
-                <p className="stats__data">{constructor.base}</p>
-              </li>
-              <li className="stats__row">
                 <p className="stats__title">Team Chief:</p>
                 <p className="stats__data">{constructor.teamChief}</p>
               </li>
               <li className="stats__row">
                 <p className="stats__title">Technical Chief:</p>
-                <p className="stats__data">{constructor.techChief}</p>
+                <p className="stats__data">{constructor.techDirector}</p>
               </li>
               <li className="stats__row">
                 <p className="stats__title">Chassis:</p>
@@ -126,6 +121,39 @@ const ConstructorPage = () => {
                 <p className="stats__data">{constructor.points}</p>
               </li>
             </ul>
+          </div>
+        </div>
+        <div className="constructor__figures">
+          <div className="constructor__drivers">
+            <div className="constructor__driver">
+              <div className="constructor__driver-image">
+                <img
+                  src={constructor.drivers[0].image}
+                  alt={constructor.drivers[0].name}
+                />
+              </div>
+              <div className="constructor__driver-info">
+                <p className="constructor__driver-name">
+                  {constructor.drivers[0].name}
+                </p>
+              </div>
+            </div>
+            <div className="constructor__driver">
+              <div className="constructor__driver-image">
+                <img
+                  src={constructor.drivers[1].image}
+                  alt={constructor.drivers[1].name}
+                />
+              </div>
+              <div className="constructor__driver-info">
+                <p className="constructor__driver-name">
+                  {constructor.drivers[1].name}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="constructor__car">
+            <img src={constructor.car} alt={`Car of ${constructor.name}`} />
           </div>
         </div>
       </div>

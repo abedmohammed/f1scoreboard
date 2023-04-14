@@ -1,9 +1,15 @@
 const useInfoBoxData = (wikiData) => {
   const getInfoBoxData = (term) => {
     let startStr = `${term}</a></th>`;
+    let flag;
 
     if (wikiData.indexOf(startStr) === -1) {
       startStr = `${term}</th>`;
+    }
+
+    if (wikiData.indexOf(startStr) === -1 && term === "Technical director") {
+      startStr = `Technical Directors</th>`;
+      flag = "ferrari";
     }
 
     const pos = wikiData.indexOf(startStr) + startStr.length;
@@ -15,14 +21,22 @@ const useInfoBoxData = (wikiData) => {
       xmlString,
       "text/xml"
     ).firstChild;
-    const text = node.textContent;
+    let text = node.textContent;
 
     if (text.indexOf("[") !== -1) {
-      return text.substring(0, text.indexOf("["));
+      text = text.substring(0, text.indexOf("["));
     }
 
     if (text.indexOf(" | ") !== -1) {
-      return text.split(" | ")[0];
+      text = text.split(" | ")[0];
+    }
+
+    if (flag === "ferrari" && term === "Technical director") {
+      text = text.substring(0, text.indexOf("("));
+    }
+
+    if (text.indexOf(".mw-parser-output") !== -1) {
+      text = text.substring(text.indexOf("WCC:") + "WCC:".length);
     }
 
     return text;

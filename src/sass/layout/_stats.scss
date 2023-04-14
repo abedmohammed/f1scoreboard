@@ -14,6 +14,11 @@
     font-weight: 600;
   }
 
+  &__row:hover &__title,
+  &__row:hover &__data {
+    text-decoration: underline;
+  }
+
   &__data {
     flex: 1 0 40%;
     text-align: left;

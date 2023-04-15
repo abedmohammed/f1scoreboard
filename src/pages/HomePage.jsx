@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData, json } from "react-router-dom";
 
 import EventCard from "../components/EventCard";
@@ -9,6 +9,7 @@ import { API } from "../helpers/utility";
 
 const HomePage = () => {
   const { getFlag, getTimezone, timeZones } = useContext(CountriesContext);
+  const [time, setTime] = useState(new Date());
   const userLocale = navigator.language;
 
   const data = useLoaderData();
@@ -44,6 +45,17 @@ const HomePage = () => {
     return new Intl.DateTimeFormat(userLocale, options).format(getDate(event));
   };
 
+  const refreshClock = () => {
+    setTime(new Date());
+  };
+
+  useEffect(() => {
+    const timer = setInterval(refreshClock, 60000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
     <main className="home page">
       <div className="home__country">
@@ -69,19 +81,17 @@ const HomePage = () => {
       <div className="home__time">
         <div>
           <p>{nextRace.locale}</p>
-          <p>
-            {timeZones.length !== 0 &&
-              localDate(nextRace, {
-                hour: "numeric",
-                minute: "numeric",
-                timeZone: getTimezone(nextRace.country),
-              })}
-          </p>
+          <p>{localDate(nextRace, { hour: "numeric", minute: "numeric" })}</p>
         </div>
         <div className="divider" />
         <div>
           <p>Your Time</p>
-          <p>{localDate(nextRace, { hour: "numeric", minute: "numeric" })}</p>
+          <p>
+            {new Intl.DateTimeFormat(userLocale, {
+              hour: "numeric",
+              minute: "numeric",
+            }).format(time)}
+          </p>
         </div>
       </div>
       <div className="home__grid">

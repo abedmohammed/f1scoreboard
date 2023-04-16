@@ -105,7 +105,7 @@ const RacesPage = () => {
             <>
               <RaceCard race={races[currentRace]} />
               <div className="races__map">
-                <Map race={races[currentRace]} coords={coords} />
+                <Map coords={coords} />
               </div>
             </>
           )}

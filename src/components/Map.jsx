@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -17,14 +17,12 @@ function SetViewOnClick({ coords }) {
   return null;
 }
 
-const Map = ({ race, coords }) => {
+const Map = ({ coords }) => {
   return (
     <MapContainer center={coords} zoom={13}>
       {coords && <SetViewOnClick coords={coords} />}
       <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
-      <Marker icon={icon} position={coords}>
-        <Popup>{race.name}</Popup>
-      </Marker>
+      <Marker icon={icon} position={coords}></Marker>
     </MapContainer>
   );
 };

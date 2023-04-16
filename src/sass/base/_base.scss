@@ -27,3 +27,18 @@ body::before {
     );
   background-size: 100%, 32px 32px, 32px 32px;
 }
+
+::-webkit-scrollbar {
+  background: var(--color-highlight);
+  width: rem(10px);
+
+  &-track {
+    background: var(--color-background);
+    margin-bottom: rem(80px);
+  }
+
+  &-thumb {
+    background: var(--color-highlight);
+    border-radius: 999px;
+  }
+}

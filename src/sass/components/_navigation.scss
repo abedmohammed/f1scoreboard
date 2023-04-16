@@ -1,11 +1,13 @@
 @use "../abstracts" as *;
 
 .navigation {
+  $logo-width: rem(160px);
+
   height: rem(80px);
   width: 100%;
 
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   bottom: 0;
   left: 0;
 
@@ -17,9 +19,10 @@
 
   padding-left: rem(50px);
   padding-right: rem(50px);
+  margin-right: rem(10px);
 
   &__logo {
-    width: rem(160px);
+    width: $logo-width;
     height: rem(160px);
 
     span {

@@ -48,6 +48,10 @@ export const CountriesContextProvider = ({ children }) => {
   }, []);
 
   const getFlag = (country) => {
+    if (country === "USA") return flags["United States"];
+    if (country === "UK") return flags["United Kingdom"];
+    if (country === "UAE") return flags["United Arab Emirates"];
+
     return flags[country];
   };
 

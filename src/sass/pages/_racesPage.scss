@@ -1,0 +1,29 @@
+@use "../abstracts/" as *;
+
+.races {
+  &__table {
+    height: rem(1100px);
+    display: flex;
+    align-items: center;
+    margin-top: rem(30px);
+  }
+
+  &__race {
+    margin: rem(50px);
+    flex: 1;
+  }
+
+  &__map {
+    margin-top: rem(80px);
+    height: rem(300px);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--color-text-faint);
+
+    .leaflet-container {
+      height: 100%;
+      width: 100%;
+      z-index: 99;
+    }
+  }
+}

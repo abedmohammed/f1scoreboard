@@ -1,17 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { useLoaderData, json } from "react-router-dom";
 
-import EventCard from "../components/EventCard";
-
-import { CountriesContext } from "../context/CountriesContext";
-
 import { API } from "../helpers/utility";
+import RaceCard from "../components/RaceCard";
+import PageWrapper from "../components/PageWrapper";
 
 const HomePage = () => {
-  const { getFlag, getTimezone, timeZones } = useContext(CountriesContext);
-  const [time, setTime] = useState(new Date());
-  const userLocale = navigator.language;
-
   const data = useLoaderData();
   const racesList = data.MRData.RaceTable.Races;
 
@@ -37,108 +31,10 @@ const HomePage = () => {
     qualifying: racesList[nextRaceIndex].Qualifying,
   };
 
-  const getDate = (event) => {
-    return new Date(`${event.date} ${event.time}`);
-  };
-
-  const localDate = (event, options) => {
-    return new Intl.DateTimeFormat(userLocale, options).format(getDate(event));
-  };
-
-  const refreshClock = () => {
-    setTime(new Date());
-  };
-
-  useEffect(() => {
-    const timer = setInterval(refreshClock, 60000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
   return (
-    <main className="home page">
-      <div className="home__country">
-        <img src={getFlag(nextRace.country)} alt={`${nextRace.country} flag`} />
-        <h2>{nextRace.country}</h2>
-      </div>
-      <div className="home__date">
-        <p className="text-faint">
-          {localDate(nextRace.firstPractice, {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          })}
-          {" - "}
-          {localDate(nextRace, {
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-      </div>
-      <h3 className="home__title">{nextRace.name}</h3>
-      <div className="home__time">
-        <div>
-          <p>{nextRace.locale}</p>
-          <p>{localDate(nextRace, { hour: "numeric", minute: "numeric" })}</p>
-        </div>
-        <div className="divider" />
-        <div>
-          <p>Your Time</p>
-          <p>
-            {new Intl.DateTimeFormat(userLocale, {
-              hour: "numeric",
-              minute: "numeric",
-            }).format(time)}
-          </p>
-        </div>
-      </div>
-      <div className="home__grid">
-        <EventCard
-          eventName="Practice 1"
-          day={localDate(nextRace.firstPractice, { weekday: "short" })}
-          time={localDate(nextRace.firstPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Practice 2"
-          day={localDate(nextRace.secondPractice, { weekday: "short" })}
-          time={localDate(nextRace.secondPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName={nextRace.sprint ? "Sprint" : "Practice 3"}
-          day={localDate(nextRace.sprint || nextRace.thirdPractice, {
-            weekday: "short",
-          })}
-          time={localDate(nextRace.sprint || nextRace.thirdPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Qualifying"
-          day={localDate(nextRace.qualifying, { weekday: "short" })}
-          time={localDate(nextRace.qualifying, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Race"
-          day={localDate(nextRace, { weekday: "short" })}
-          time={localDate(nextRace, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-      </div>
-    </main>
+    <PageWrapper className="home">
+      <RaceCard race={nextRace} />
+    </PageWrapper>
   );
 };
 

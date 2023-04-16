@@ -1,7 +1,8 @@
 import React from "react";
+import PageWrapper from "../components/PageWrapper";
 
 const NewsPage = () => {
-  return <div>NewsPage</div>;
+  return <PageWrapper className="races" title="News"></PageWrapper>;
 };
 
 export default NewsPage;

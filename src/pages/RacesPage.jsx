@@ -1,5 +1,12 @@
 import React, { useMemo, useContext, useEffect, useState } from "react";
-import { useLoaderData, json, useSearchParams } from "react-router-dom";
+import {
+  useLoaderData,
+  json,
+  useSearchParams,
+  NavLink,
+  Outlet,
+  useNavigate,
+} from "react-router-dom";
 
 import { API } from "../helpers/utility";
 import RaceCard from "../components/RaceCard";
@@ -9,12 +16,12 @@ import Map from "../components/Map";
 
 const RacesPage = () => {
   const [currentRace, setCurrentRace] = useState();
-  // const [searchParams, setSearchParams] = useSearchParams();
   const { getFlag } = useContext(CountriesContext);
   const userLocale = navigator.language;
   const data = useLoaderData();
   const racesList = data.MRData.RaceTable.Races;
   const [coords, setCoords] = useState();
+  const navigate = useNavigate();
 
   const getDate = (event) => {
     return new Date(`${event.date} ${event.time}`);
@@ -31,6 +38,7 @@ const RacesPage = () => {
         date: race.date,
         time: race.time,
         name: race.raceName,
+        round: race.round,
         locale: race.Circuit.Location.locality,
         firstPractice: race.FirstPractice,
         secondPractice: race.SecondPractice,
@@ -45,33 +53,36 @@ const RacesPage = () => {
 
   const year = data.MRData.RaceTable.season;
   useEffect(() => {
-    const now = new Date();
-    let nextRaceIndex = 0;
-    races.forEach((race, i) => {
-      if (new Date(race.date) > now && nextRaceIndex === 0) {
-        nextRaceIndex = i;
-      }
-    });
-    setCurrentRace(nextRaceIndex);
-    setCoords([races[nextRaceIndex].lat, races[nextRaceIndex].long]);
+    if (!currentRace) {
+      const now = new Date();
+      let nextRaceIndex = 0;
+      races.forEach((race, i) => {
+        if (new Date(race.date) > now && nextRaceIndex === 0) {
+          nextRaceIndex = i;
+        }
+      });
+      setCurrentRace(nextRaceIndex);
+      setCoords([races[nextRaceIndex].lat, races[nextRaceIndex].long]);
+      navigate(races[nextRaceIndex].round);
+    }
   }, [races]);
 
   const handleRaceChange = (raceIndex) => {
     setCurrentRace(raceIndex);
-    // setSearchParams({ race: races[raceIndex].name });
     setCoords([races[raceIndex].lat, races[raceIndex].long]);
   };
 
   return (
     <PageWrapper className="races" title={`${year} Races`}>
-      <div className="races__table">
+      <div className="races__listing">
         <aside className="schedule">
           <div className="schedule__box">
             <h3 className="schedule__header">Schedule</h3>
             <div className="schedule__list">
               {races.map((race, i) => {
                 return (
-                  <div
+                  <NavLink
+                    to={race.round}
                     key={i}
                     onClick={() => {
                       handleRaceChange(i);
@@ -94,7 +105,7 @@ const RacesPage = () => {
                         month: "long",
                       })}
                     </p>
-                  </div>
+                  </NavLink>
                 );
               })}
             </div>
@@ -113,6 +124,7 @@ const RacesPage = () => {
           )}
         </div>
       </div>
+      <div className="races__tables">{currentRace && <Outlet />}</div>
     </PageWrapper>
   );
 };

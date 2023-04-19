@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .races {
-  &__table {
+  &__listing {
     height: rem(1100px);
     display: flex;
     align-items: center;

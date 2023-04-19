@@ -15,6 +15,7 @@ import DriverPage, { loader as driverLoader } from "./pages/DriverPage";
 import ConstructorPage, {
   loader as constructorLoader,
 } from "./pages/ConstructorPage";
+import RaceTables, { loader as tablesLoader } from "./components/RaceTables";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,14 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: "races", element: <RacesPage />, loader: racesLoader },
+      {
+        path: "races",
+        element: <RacesPage />,
+        loader: racesLoader,
+        children: [
+          { path: ":raceRound", element: <RaceTables />, loader: tablesLoader },
+        ],
+      },
     ],
   },
 ]);

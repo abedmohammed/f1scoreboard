@@ -13,9 +13,7 @@
 
 <!-- RACES -->
 
-- steal f1 page carroussel design
-- if its in the future, say no data available and add a timer
-- add table data
-  - qualifying results
-  - sprint results
-  - race results
+- when user clicks a different race, change url
+- child url will be enclosed and not reloaded using should revalidate
+- child will call loader to retrieve race data that will be displayed in a table
+- recreate tabbing component to take more than 1 option and update the one in standings page

@@ -1,5 +1,5 @@
 import React, { useMemo, useContext, useEffect, useState } from "react";
-import { useLoaderData, json } from "react-router-dom";
+import { useLoaderData, json, useSearchParams } from "react-router-dom";
 
 import { API } from "../helpers/utility";
 import RaceCard from "../components/RaceCard";
@@ -9,6 +9,7 @@ import Map from "../components/Map";
 
 const RacesPage = () => {
   const [currentRace, setCurrentRace] = useState();
+  // const [searchParams, setSearchParams] = useSearchParams();
   const { getFlag } = useContext(CountriesContext);
   const userLocale = navigator.language;
   const data = useLoaderData();
@@ -57,6 +58,7 @@ const RacesPage = () => {
 
   const handleRaceChange = (raceIndex) => {
     setCurrentRace(raceIndex);
+    // setSearchParams({ race: races[raceIndex].name });
     setCoords([races[raceIndex].lat, races[raceIndex].long]);
   };
 

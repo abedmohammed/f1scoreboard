@@ -57,8 +57,6 @@ const ConstructorPage = () => {
     constructorChampionships: getInfoBoxData("Championships</a>"),
   };
 
-  console.log(constructor);
-
   return (
     <PageWrapper className="constructor" title={constructor.name}>
       <div className="constructor__container">

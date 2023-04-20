@@ -42,4 +42,13 @@
     padding: rem(50px);
     border-radius: 10px;
   }
+
+  &__loading {
+    height: rem(1300px);
+
+    .loader {
+      margin-top: rem(50px);
+      place-content: start center;
+    }
+  }
 }

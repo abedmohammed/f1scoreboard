@@ -1,13 +1,20 @@
 import React, { useCallback, useEffect } from "react";
-import { json, useLoaderData, useSearchParams } from "react-router-dom";
+import {
+  json,
+  useLoaderData,
+  useSearchParams,
+  useNavigation,
+} from "react-router-dom";
 import { API, getUrl } from "../helpers/utility";
 import Tabs from "./Tabs";
 import useTabs from "../hooks/useTabs";
 import Table from "./Table";
 import { constructorsExtra, driversExtra } from "../helpers/extraData";
+import Loader from "./Loader";
 
 const RaceTables = () => {
   const data = useLoaderData();
+  const navigation = useNavigation();
   let [searchParams, setSearchParams] = useSearchParams();
 
   const [activeTab, setActiveTab, tabs] = useTabs([
@@ -77,8 +84,6 @@ const RaceTables = () => {
     });
   }
 
-  console.log(results);
-
   const handleTabSwitch = useCallback(
     (tab) => {
       setActiveTab(tab);
@@ -97,11 +102,17 @@ const RaceTables = () => {
     <div>
       <Tabs tabs={tabs} onTabSwitch={handleTabSwitch} activeTab={activeTab} />
       <div className="races__table">
-        {results ? (
-          <Table data={results} tab={activeTab} />
+        {navigation.state !== "loading" ? (
+          results ? (
+            <Table data={results} tab={activeTab} />
+          ) : (
+            <div className="races__na">
+              <p>There is no data currently available for this race.</p>
+            </div>
+          )
         ) : (
-          <div className="races__na">
-            <p>There is no data currently available for this race.</p>
+          <div className="races__loading">
+            <Loader />
           </div>
         )}
       </div>
@@ -112,6 +123,7 @@ const RaceTables = () => {
 export default RaceTables;
 
 export async function loader({ request, params }) {
+  console.log("new request");
   const round = params.raceRound;
   const tableType = new URL(request.url).searchParams.get("table");
   const response = await fetch(

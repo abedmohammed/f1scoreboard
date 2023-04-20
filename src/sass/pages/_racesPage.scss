@@ -26,4 +26,20 @@
       z-index: 99;
     }
   }
+
+  &__tables {
+    margin: rem(60px) auto 0 auto;
+    padding: 0 rem(50px);
+    max-width: rem(1100px);
+  }
+
+  &__table {
+    margin-top: rem(30px);
+  }
+
+  &__na {
+    background-color: var(--color-table-alt-1);
+    padding: rem(50px);
+    border-radius: 10px;
+  }
 }

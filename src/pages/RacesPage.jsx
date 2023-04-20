@@ -2,7 +2,6 @@ import React, { useMemo, useContext, useEffect, useState } from "react";
 import {
   useLoaderData,
   json,
-  useSearchParams,
   NavLink,
   Outlet,
   useNavigate,
@@ -53,7 +52,7 @@ const RacesPage = () => {
 
   const year = data.MRData.RaceTable.season;
   useEffect(() => {
-    if (!currentRace) {
+    if (!races[currentRace]) {
       const now = new Date();
       let nextRaceIndex = 0;
       races.forEach((race, i) => {
@@ -65,7 +64,7 @@ const RacesPage = () => {
       setCoords([races[nextRaceIndex].lat, races[nextRaceIndex].long]);
       navigate(races[nextRaceIndex].round);
     }
-  }, [races]);
+  }, [races, currentRace, navigate]);
 
   const handleRaceChange = (raceIndex) => {
     setCurrentRace(raceIndex);
@@ -124,7 +123,11 @@ const RacesPage = () => {
           )}
         </div>
       </div>
-      <div className="races__tables">{currentRace && <Outlet />}</div>
+      {races[currentRace] && (
+        <div className="races__tables">
+          <Outlet />
+        </div>
+      )}
     </PageWrapper>
   );
 };

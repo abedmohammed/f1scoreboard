@@ -44,17 +44,74 @@
     text-align: left;
   }
 
-  &__subtitle {
+  &__logo {
+    margin-left: rem(20px);
+    width: rem(40px);
+  }
+
+  &__driver-image {
+    width: rem(40px);
+    height: rem(40px);
+    border: 2px solid var(--color-highlight);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: rem(15px);
+    margin-right: rem(-5px);
+
+    img {
+      max-width: 120%;
+      max-height: 120%;
+      width: 120%;
+      height: 120%;
+    }
+  }
+
+  &__team-logo {
     margin-left: rem(40px);
+    width: rem(20px);
+  }
+
+  &__team {
+    margin-left: rem(10px);
     font-size: rem(12px);
   }
 
-  &__points {
+  &__right {
     margin-left: auto;
+  }
+
+  &__points {
     font-size: rem(12px);
     background-color: var(--color-bubble);
     padding: rem(5px) rem(15px);
     border-radius: 999px;
+  }
+
+  &__status {
+    margin-right: rem(20px);
+  }
+
+  &__qualifying {
+    flex-basis: rem(350px);
+    display: flex;
+    gap: rem(20px);
+  }
+
+  &__qualifying-round {
+    align-items: flex-end;
+    flex-basis: 100px;
+    display: flex;
+    gap: rem(5px);
+
+    span {
+      color: yellow;
+      font-size: rem(14px);
+    }
+  }
+
+  &__dnf {
+    font-weight: 800;
+    margin-left: auto;
   }
 
   &__arrow {

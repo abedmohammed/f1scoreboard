@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+
+.tabs {
+  margin-top: rem(50px);
+  display: flex;
+  gap: rem(30px);
+  justify-content: center;
+
+  &__tab {
+    @include style-link(var(--color-text-faint));
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &--active {
+      color: var(--color-text);
+      transform: translateY(-2px);
+    }
+  }
+}

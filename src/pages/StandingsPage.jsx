@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { json, useLoaderData } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
 import Table from "../components/Table";
+import Tabs from "../components/Tabs";
+import { constructorsExtra, driversExtra } from "../helpers/extraData";
 
 import { API, getUrl } from "../helpers/utility";
+import useTabs from "../hooks/useTabs";
 
 const StandingsPage = () => {
-  const [activeTab, setActiveTab] = useState("drivers");
+  const [activeTab, setActiveTab, tabs] = useTabs(["Drivers", "Constructors"]);
+
   const {
     driverResponse: driverStandingData,
     constructorResponse: constructorStandingData,
@@ -19,8 +23,11 @@ const StandingsPage = () => {
           name: `${
             driver.Driver.givenName
           } ${driver.Driver.familyName.toUpperCase()}`,
+          image: driversExtra[driver.Driver.code]?.image,
           position: driver.position,
           team: driver.Constructors[0].name,
+          teamLogo:
+            constructorsExtra[driver.Constructors[0].constructorId]?.logo,
           points: driver.points,
           url: getUrl(driver.Driver.url),
         };
@@ -32,6 +39,7 @@ const StandingsPage = () => {
       (team) => {
         return {
           name: team.Constructor.name,
+          logo: constructorsExtra[team.Constructor.constructorId]?.logo,
           position: team.position,
           points: team.points,
           url: getUrl(team.Constructor.url),
@@ -39,35 +47,19 @@ const StandingsPage = () => {
       }
     );
 
+  const handleTabSwitch = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <PageWrapper className="standings" title="Current Standings">
-      <div className="standings__tabs">
-        <button
-          className={`standings__tab ${
-            activeTab === "drivers" ? "standings__tab--active" : ""
-          }`}
-          onClick={() => {
-            setActiveTab("drivers");
-          }}
-        >
-          Drivers
-        </button>
-        <button
-          className={`standings__tab ${
-            activeTab === "constructors" ? "standings__tab--active" : ""
-          }`}
-          onClick={() => {
-            setActiveTab("constructors");
-          }}
-        >
-          Constructors
-        </button>
-      </div>
+      <Tabs tabs={tabs} onTabSwitch={handleTabSwitch} activeTab={activeTab} />
       <div className="standings__table">
         <Table
           data={
-            activeTab === "drivers" ? driverStandings : constructorStandings
+            activeTab === "Drivers" ? driverStandings : constructorStandings
           }
+          tab={activeTab}
         />
       </div>
     </PageWrapper>

@@ -21,9 +21,9 @@ const MainNavigation = () => {
         </h1>
       </NavLink>
       <div className="navigation__links">
-        <NavLink to="/news" className={activeLinkClass} end>
+        {/* <NavLink to="/news" className={activeLinkClass} end>
           News
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/standings" className={activeLinkClass} end>
           Standings
         </NavLink>

@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import RootLayout from "./pages/RootLayout";
 import HomePage, { loader as homeLoader } from "./pages/HomePage";
-import NewsPage from "./pages/NewsPage";
+// import NewsPage from "./pages/NewsPage";
 import StandingsPage, {
   loader as standingsLoader,
 } from "./pages/StandingsPage";
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage />, loader: homeLoader },
-      { path: "news", element: <NewsPage /> },
+      // { path: "news", element: <NewsPage /> },
       {
         path: "standings",
         element: <StandingsPage />,

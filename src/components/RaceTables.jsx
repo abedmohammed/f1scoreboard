@@ -14,7 +14,6 @@ const RaceTables = () => {
     "Qualifying",
     "Sprint",
     "Results",
-    "Constructors",
   ]);
 
   let results;
@@ -44,6 +43,24 @@ const RaceTables = () => {
     data?.MRData?.RaceTable?.Races[0]?.SprintResults
   ) {
     results = data.MRData.RaceTable.Races[0].SprintResults.map((driver) => {
+      return {
+        name: `${
+          driver.Driver.givenName
+        } ${driver.Driver.familyName.toUpperCase()}`,
+        image: driversExtra[driver.Driver.code]?.image,
+        position: driver.position,
+        team: driver.Constructor.name,
+        teamLogo: constructorsExtra[driver.Constructor.constructorId]?.logo,
+        time: driver.Time?.time,
+        status: driver.status,
+        points: driver.points,
+        url: getUrl(driver.Driver.url),
+      };
+    });
+  }
+
+  if (activeTab === "Results" && data?.MRData?.RaceTable?.Races[0]?.Results) {
+    results = data.MRData.RaceTable.Races[0].Results.map((driver) => {
       return {
         name: `${
           driver.Driver.givenName

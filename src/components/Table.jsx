@@ -88,6 +88,22 @@ const Table = ({ data, tab }) => {
             </>
           )}
 
+          {/* RESULTS */}
+          {tab === "Results" && (
+            <>
+              <div className="table__sprint table__right">
+                {item.status === "Finished" ? (
+                  <div className="table__time">{item.time}</div>
+                ) : (
+                  <p className="table__status">{item.status}</p>
+                )}
+              </div>
+              <div className="table__points">
+                <span>{`${item.points} PTS`}</span>
+              </div>
+            </>
+          )}
+
           {/* ARROW */}
           <div className="table__arrow"></div>
         </Link>

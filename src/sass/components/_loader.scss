@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+
+.loader {
+  height: 40vh;
+  height: 40dvh;
+
+  display: grid;
+  place-content: center;
+
+  &__spinner {
+    width: rem(80px);
+    height: rem(80px);
+    animation: spin 1.5s linear infinite;
+  }
+}

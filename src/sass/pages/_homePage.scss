@@ -1,4 +1,19 @@
 @use "../abstracts/" as *;
 
 .home {
+  &__more {
+    margin-top: rem(80px);
+
+    a {
+      @include style-link(currentColor);
+      display: inline-block;
+
+      &:hover:not(&--active) {
+        transform: translateY(-2px);
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

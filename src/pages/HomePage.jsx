@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, json } from "react-router-dom";
+import { useLoaderData, json, Link } from "react-router-dom";
 
 import { API } from "../helpers/utility";
 import RaceCard from "../components/RaceCard";
@@ -34,6 +34,11 @@ const HomePage = () => {
   return (
     <PageWrapper className="home">
       <RaceCard race={nextRace} />
+      <div className="home__more">
+        <Link to="/races">
+          View more details <span>&rarr;</span>
+        </Link>
+      </div>
     </PageWrapper>
   );
 };

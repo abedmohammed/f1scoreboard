@@ -92,10 +92,12 @@ const RacesPage = () => {
                   >
                     <div className="schedule__cover"></div>
                     <div className="schedule__flag">
-                      <img
-                        src={getFlag(race.country)}
-                        alt={`${race.country} flag`}
-                      />
+                      {getFlag(race.country) && (
+                        <img
+                          src={getFlag(race.country)}
+                          alt={`${race.country} flag`}
+                        />
+                      )}
                     </div>
                     <p className="schedule__country">{race.country}</p>
                     <p className="schedule__date">
@@ -137,14 +139,18 @@ export default RacesPage;
 export async function loader() {
   const response = await fetch(API("/f1/current"));
 
-  if (!response.ok) {
-    throw json(
-      { message: "Could not fetch details for the upcoming races." },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    return response;
+  switch (response.status) {
+    case 500:
+      throw json(
+        {
+          message:
+            "We are currently unable to retrieve this data. Please try again later!",
+        },
+        {
+          status: 500,
+        }
+      );
+    default:
+      return response;
   }
 }

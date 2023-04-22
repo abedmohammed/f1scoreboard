@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+.error {
+  height: 60vh;
+  height: 60dvh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__gif {
+    max-width: 35%;
+  }
+
+  &__message {
+    margin-top: rem(16px);
+    font-size: rem(18px);
+    width: 60%;
+  }
+}

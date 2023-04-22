@@ -24,7 +24,9 @@ const ListingCard = ({ data }) => {
           <h4 className="card__name">{data.name}</h4>
           {data.team ? (
             <div className="card__flag">
-              <img src={data.flag} alt={`${data.country} flag`} />
+              {data.flag && (
+                <img src={data.flag} alt={`${data.country} flag`} />
+              )}
             </div>
           ) : (
             <div className="card__logo">

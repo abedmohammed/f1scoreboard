@@ -123,21 +123,24 @@ const RaceTables = () => {
 export default RaceTables;
 
 export async function loader({ request, params }) {
-  console.log("new request");
   const round = params.raceRound;
   const tableType = new URL(request.url).searchParams.get("table");
   const response = await fetch(
     API(`/f1/current/${round}/${tableType || "qualifying"}`)
   );
 
-  if (!response.ok) {
-    throw json(
-      { message: "Could not fetch details for the upcoming races." },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    return response;
+  switch (response.status) {
+    case 500:
+      throw json(
+        {
+          message:
+            "We are currently unable to retrieve this data. Please try again later!",
+        },
+        {
+          status: 500,
+        }
+      );
+    default:
+      return response;
   }
 }

@@ -19,7 +19,6 @@ function RootLayout() {
   return (
     <>
       <main>
-        <div className="background-pattern"></div>
         <ScrollToTop />
         {navigation.state === "loading" && !isRacesAgain(navigation) ? (
           <PageWrapper>

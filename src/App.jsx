@@ -16,11 +16,13 @@ import ConstructorPage, {
   loader as constructorLoader,
 } from "./pages/ConstructorPage";
 import RaceTables, { loader as tablesLoader } from "./components/RaceTables";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage />, loader: homeLoader },
       // { path: "news", element: <NewsPage /> },

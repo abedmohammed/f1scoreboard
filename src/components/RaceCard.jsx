@@ -7,6 +7,8 @@ const RaceCard = ({ race }) => {
   const [time, setTime] = useState(new Date());
   const userLocale = navigator.language;
 
+  const flag = getFlag(race.country);
+
   const getDate = (event) => {
     return new Date(`${event.date} ${event.time}`);
   };
@@ -29,7 +31,7 @@ const RaceCard = ({ race }) => {
   return (
     <div className="race">
       <div className="race__country">
-        <img src={getFlag(race.country)} alt={`${race.country} flag`} />
+        {flag && <img src={flag} alt={`${race.country} flag`} />}
         <h2>{race.country}</h2>
       </div>
       <div className="race__date">

@@ -14,8 +14,18 @@ a {
   cursor: pointer;
   transition: all 0.3s;
 
+  @include media(400px) {
+    &:not(.card--teams) {
+      height: rem(260px);
+    }
+  }
+
   &--teams {
     height: rem(320px);
+
+    @include media(420px) {
+      height: rem(380px);
+    }
   }
 
   &__content {
@@ -84,12 +94,46 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include media(420px) {
+      align-items: flex-start;
+      justify-content: space-around;
+    }
+
+    @include media(380px) {
+      flex-direction: column;
+      gap: rem(10px);
+    }
   }
 
   &__driver {
     display: flex;
     align-items: center;
     gap: rem(15px);
+
+    @include media(600px) {
+      p {
+        text-align: left;
+        max-width: rem(100px);
+      }
+    }
+
+    @include media(420px) {
+      display: block;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    @include media(380px) {
+      display: flex;
+
+      p {
+        text-align: left;
+        max-width: rem(250px);
+      }
+    }
   }
 
   &__driver-image {
@@ -106,6 +150,10 @@ a {
       width: 120%;
       height: 120%;
     }
+
+    @include media(420px) {
+      margin: 0 auto rem(5px) auto;
+    }
   }
 
   &__graphic {
@@ -121,10 +169,18 @@ a {
     font-weight: 700;
     margin-left: rem(10px);
     margin-bottom: rem(10px);
+
+    @include media(400px) {
+      font-size: rem(55px);
+    }
   }
 
   &__image {
     width: rem(200px);
+
+    @include media(400px) {
+      width: rem(150px);
+    }
   }
 
   &__car {
@@ -132,6 +188,22 @@ a {
     img {
       width: 70%;
       margin: 0 auto;
+    }
+
+    @include media(600px) {
+      margin-top: rem(30px);
+      img {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @include media(420px) {
+      img {
+        width: 120%;
+        max-width: 120%;
+        margin-left: rem(-30px);
+      }
     }
   }
 

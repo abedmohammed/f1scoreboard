@@ -13,5 +13,13 @@
     @media only screen and (max-width: 77.5em) {
       grid-template-columns: minmax(rem(450px), rem(650px));
     }
+
+    @include media(700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include media(400px) {
+    grid-template-columns: repeat(auto-fit, minmax(rem(280px), 1fr));
   }
 }

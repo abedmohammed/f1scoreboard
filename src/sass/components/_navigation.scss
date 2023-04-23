@@ -52,6 +52,10 @@
     }
   }
 
+  @include media(380px) {
+    padding: 0 rem(0px);
+  }
+
   @include media(560px) {
     & > a {
       position: fixed;
@@ -92,6 +96,10 @@
     &--active,
     &:hover {
       opacity: 100%;
+    }
+
+    @include media(380px) {
+      font-size: rem(16px);
     }
   }
 }

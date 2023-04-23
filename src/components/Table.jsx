@@ -29,7 +29,16 @@ const Table = ({ data, tab }) => {
           )}
 
           {/* NAME */}
-          <h3 className="table__name">{item.name}</h3>
+          <h3
+            className={`table__name ${
+              tab === "Constructors" ? "table__name--team" : ""
+            }`}
+          >
+            {item.name}
+          </h3>
+
+          {/* CODE */}
+          <h3 className="table__code">{item.code}</h3>
 
           {/* DRIVER TEAM */}
           {tab !== "Constructors" && (

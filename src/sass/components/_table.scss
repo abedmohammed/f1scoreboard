@@ -26,6 +26,10 @@
         transform: rotate(45deg) translate(3px, -3px);
       }
     }
+
+    @include media(420px) {
+      padding: 0 rem(10px);
+    }
   }
 
   &__position {
@@ -42,11 +46,44 @@
     margin-left: rem(20px);
     flex-basis: rem(180px);
     text-align: left;
+
+    @include media(900px) {
+      font-size: rem(16px);
+      flex-basis: rem(160px);
+    }
+
+    @include media(420px) {
+      &:not(&--team) {
+        display: none;
+      }
+
+      &--team {
+        flex-basis: rem(120px);
+      }
+    }
+
+    @include media(420px) {
+      font-size: rem(14px);
+    }
+  }
+
+  &__code {
+    display: none;
+    margin-left: rem(20px);
+    text-align: left;
+
+    @include media(420px) {
+      display: block;
+    }
   }
 
   &__logo {
     margin-left: rem(20px);
     width: rem(40px);
+
+    @include media(600px) {
+      display: none;
+    }
   }
 
   &__driver-image {
@@ -64,16 +101,32 @@
       width: 120%;
       height: 120%;
     }
+
+    @include media(750px) {
+      display: none;
+    }
   }
 
   &__team-logo {
     margin-left: rem(40px);
     width: rem(20px);
+
+    @include media(900px) {
+      margin-left: rem(10px);
+    }
+
+    @include media(750px) {
+      display: none;
+    }
   }
 
   &__team {
     margin-left: rem(10px);
     font-size: rem(12px);
+
+    @include media(650px) {
+      display: none;
+    }
   }
 
   &__right {
@@ -85,6 +138,11 @@
     background-color: var(--color-bubble);
     padding: rem(5px) rem(15px);
     border-radius: 999px;
+
+    @include media(420px) {
+      flex-basis: rem(70px);
+      padding: rem(5px) rem(10px);
+    }
   }
 
   &__time {
@@ -135,6 +193,10 @@
       position: relative;
       transform: rotate(45deg);
       transition: all 0.2s;
+    }
+
+    @include media(420px) {
+      margin-left: rem(10px);
     }
   }
 }

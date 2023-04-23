@@ -24,6 +24,7 @@ const StandingsPage = () => {
             driver.Driver.givenName
           } ${driver.Driver.familyName.toUpperCase()}`,
           image: driversExtra[driver.Driver.code]?.image,
+          code: driver.Driver.code,
           position: driver.position,
           team: driver.Constructors[0].name,
           teamLogo:

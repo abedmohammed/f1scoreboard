@@ -5,6 +5,15 @@
     margin: rem(30px) rem(60px);
     display: flex;
     gap: rem(30px);
+
+    @include media(1300px) {
+      margin: rem(30px);
+    }
+
+    @include media(900px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__figures {
@@ -16,11 +25,23 @@
     justify-content: center;
     gap: 5%;
     margin-bottom: rem(25px);
+
+    @include media(1300px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include media(900px) {
+      flex-direction: row;
+      margin-top: rem(30px);
+    }
   }
 
-  // &__driver {
-  //   border: 1px solid white;
-  // }
+  &__driver {
+    @include media(900px) {
+      flex: 1;
+    }
+  }
 
   &__driver-image {
     border: 1px solid var(--color-text-faint);
@@ -33,6 +54,18 @@
     );
     width: rem(206px);
     transition: all 0.4s;
+
+    @include media(1100px) {
+      width: rem(150px);
+    }
+
+    @include media(900px) {
+      width: 100%;
+
+      img {
+        margin: 0 auto;
+      }
+    }
   }
 
   &__driver:hover &__driver-image {
@@ -43,6 +76,10 @@
     font-family: var(--font-grotesk);
     padding: rem(15px) 0;
     display: flex;
+
+    @include media(900px) {
+      justify-content: center;
+    }
   }
 
   &__car {
@@ -56,6 +93,20 @@
     );
 
     transition: all 0.4s;
+
+    @include media(900px) {
+      img {
+        margin: 0 auto;
+        max-width: 80%;
+      }
+    }
+
+    @include media(700px) {
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+    }
   }
 
   &__car:hover {
@@ -64,6 +115,10 @@
 
   &__content {
     flex: 1 0 55%;
+
+    @include media(900px) {
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -87,5 +142,12 @@
 
   .stats {
     border-top: var(--border-divider-faint);
+
+    @include media(700px) {
+      &__title,
+      &__data {
+        flex: 1 0 50%;
+      }
+    }
   }
 }

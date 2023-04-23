@@ -12,9 +12,24 @@
   display: flex;
   flex-direction: column;
 
+  @include media(1300px) {
+    margin: 0;
+    padding: 0 rem(30px);
+    width: 100%;
+    height: rem(300px);
+  }
+
+  @include media(600px) {
+    padding: 0;
+  }
+
   &__box {
     height: fit-content;
     background-color: var(--color-aside-background);
+
+    @include media(1300px) {
+      height: 100%;
+    }
   }
 
   &__header {
@@ -23,6 +38,11 @@
     font-weight: 500;
     border-bottom: var(--border-divider);
     padding: rem(20px);
+
+    @include media(800px) {
+      font-size: rem(20px);
+      padding: rem(10px);
+    }
   }
 
   &__list {
@@ -45,6 +65,26 @@
         border-radius: 999px;
       }
     }
+
+    @include media(1300px) {
+      height: rem(180px);
+      margin: rem(15px) rem(30px);
+      padding-bottom: rem(15px);
+
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      display: flex;
+    }
+
+    @include media(1300px) {
+      height: rem(140px);
+      margin: rem(15px);
+    }
+
+    @include media(800px) {
+      margin: rem(15px) 0;
+    }
   }
 
   &__card {
@@ -58,6 +98,27 @@
 
     &:not(:last-child) {
       border-bottom: var(--border-divider-faint);
+    }
+
+    @include media(1300px) {
+      flex: 1 0 100px;
+      padding-right: rem(15px);
+      flex-direction: column;
+      align-items: center;
+
+      &:not(:last-child) {
+        border-right: var(--border-divider-faint);
+        border-bottom: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding-right: rem(15px);
+      }
+
+      &:first-child {
+        padding-left: rem(15px);
+      }
     }
   }
 
@@ -81,10 +142,31 @@
     }
   }
 
+  &__country {
+    @include media(1300px) {
+      font-size: rem(12px);
+    }
+  }
+
   &__date {
     flex-basis: rem(100px);
     margin-left: auto;
     text-align: left;
+
+    &--short {
+      display: none;
+    }
+
+    @include media(1300px) {
+      margin: 0;
+      text-align: center;
+      display: none;
+
+      &--short {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
   }
 
   &__pattern {

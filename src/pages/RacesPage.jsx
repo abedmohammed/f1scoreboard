@@ -106,6 +106,12 @@ const RacesPage = () => {
                         month: "long",
                       })}
                     </p>
+                    <p className="schedule__date schedule__date--short">
+                      {localDate(race, {
+                        day: "2-digit",
+                        month: "short",
+                      })}
+                    </p>
                   </NavLink>
                 );
               })}

@@ -1,5 +1,11 @@
 @use "../abstracts/" as *;
 
+@include media(480px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
 body {
   background-color: var(--color-background);
 }

@@ -67,48 +67,98 @@ const RaceCard = ({ race }) => {
         </div>
       </div>
       <div className="race__grid">
-        <EventCard
-          eventName="Practice 1"
-          day={localDate(race.firstPractice, { weekday: "short" })}
-          time={localDate(race.firstPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Practice 2"
-          day={localDate(race.secondPractice, { weekday: "short" })}
-          time={localDate(race.secondPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName={race.sprint ? "Sprint" : "Practice 3"}
-          day={localDate(race.sprint || race.thirdPractice, {
-            weekday: "short",
-          })}
-          time={localDate(race.sprint || race.thirdPractice, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Qualifying"
-          day={localDate(race.qualifying, { weekday: "short" })}
-          time={localDate(race.qualifying, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
-        <EventCard
-          eventName="Race"
-          day={localDate(race, { weekday: "short" })}
-          time={localDate(race, {
-            hour: "numeric",
-            minute: "numeric",
-          })}
-        />
+        {race.sprint ? (
+          <>
+            <EventCard
+              eventName="Practice 1"
+              day={localDate(race.firstPractice, { weekday: "short" })}
+              time={localDate(race.firstPractice, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Qualifying"
+              day={localDate(race.qualifying, { weekday: "short" })}
+              time={localDate(race.qualifying, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Practice 2"
+              day={localDate(race.secondPractice, { weekday: "short" })}
+              time={localDate(race.secondPractice, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Sprint"
+              day={localDate(race.sprint, {
+                weekday: "short",
+              })}
+              time={localDate(race.sprint, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+
+            <EventCard
+              eventName="Race"
+              day={localDate(race, { weekday: "short" })}
+              time={localDate(race, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+          </>
+        ) : (
+          <>
+            <EventCard
+              eventName="Practice 1"
+              day={localDate(race.firstPractice, { weekday: "short" })}
+              time={localDate(race.firstPractice, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Practice 2"
+              day={localDate(race.secondPractice, { weekday: "short" })}
+              time={localDate(race.secondPractice, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Practice 3"
+              day={localDate(race.thirdPractice, {
+                weekday: "short",
+              })}
+              time={localDate(race.thirdPractice, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Qualifying"
+              day={localDate(race.qualifying, { weekday: "short" })}
+              time={localDate(race.qualifying, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+            <EventCard
+              eventName="Race"
+              day={localDate(race, { weekday: "short" })}
+              time={localDate(race, {
+                hour: "numeric",
+                minute: "numeric",
+              })}
+            />
+          </>
+        )}
       </div>
     </div>
   );

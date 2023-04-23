@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .navigation {
-  $logo-width: rem(160px);
+  $logo-width: rem(140px);
 
   height: rem(80px);
   width: 100%;
@@ -17,13 +17,12 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-left: rem(50px);
-  padding-right: rem(50px);
+  padding: 0 rem(50px);
   margin-right: rem(10px);
 
   &__logo {
     width: $logo-width;
-    height: rem(160px);
+    height: rem(80px);
 
     span {
       display: block;
@@ -38,6 +37,41 @@
       mask-size: 100%;
       mask-repeat: no-repeat;
       mask-position: center;
+    }
+
+    @include media(900px) {
+      width: rem(125px);
+    }
+  }
+
+  @include media(680px) {
+    padding: 0 rem(15px);
+
+    &__logo {
+      width: rem(90px);
+    }
+  }
+
+  @include media(560px) {
+    & > a {
+      position: fixed;
+      z-index: 999;
+      // top: rem(20px);
+      top: 10px;
+      left: 10px;
+      // transform: translateX(-50%);
+      // width: rem(80px);
+      width: rem(90px);
+      height: rem(30px);
+      display: grid;
+      place-content: center;
+
+      background-color: var(--color-highlight);
+      border-radius: 5px;
+    }
+
+    &__logo {
+      width: rem(70px);
     }
   }
 

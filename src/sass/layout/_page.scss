@@ -23,4 +23,9 @@
     padding-bottom: $top-padding;
     border-bottom: var(--border-divider);
   }
+
+  @include media(560px) {
+    width: 90vw;
+    margin-top: 10px;
+  }
 }

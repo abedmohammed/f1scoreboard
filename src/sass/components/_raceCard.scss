@@ -25,6 +25,10 @@
     padding-bottom: rem(20px);
     border-top: var(--border-divider);
     border-bottom: var(--border-divider);
+
+    @include media(560px) {
+      width: 90%;
+    }
   }
 
   &__title {
@@ -33,6 +37,11 @@
 
     font-family: var(--font-grotesk);
     font-size: rem(35px);
+
+    @include media(560px) {
+      margin: rem(30px) auto 0 auto;
+      font-size: rem(25px);
+    }
   }
 
   &__time {
@@ -55,6 +64,7 @@
 
   &__grid {
     margin-top: rem(50px);
+    padding: 0 rem(20px);
 
     display: grid;
     grid-template-columns: repeat(2, minmax(rem(250px), rem(320px)));

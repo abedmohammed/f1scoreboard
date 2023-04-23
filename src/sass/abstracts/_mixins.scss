@@ -1,3 +1,5 @@
+@use "./functions/" as *;
+
 @mixin style-text($color) {
   font-size: 20px;
   color: $color;
@@ -60,4 +62,10 @@
     );
   background-position: center;
   background-size: 100%, 32px 32px, 32px 32px;
+}
+
+@mixin media($width) {
+  @media (max-width: em($width)) {
+    @content;
+  }
 }

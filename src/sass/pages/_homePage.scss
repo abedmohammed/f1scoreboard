@@ -15,5 +15,9 @@
         }
       }
     }
+
+    @include media(560px) {
+      margin-top: rem(40px);
+    }
   }
 }

@@ -1,5 +1,5 @@
 const API = (path) => {
-  return `http://ergast.com/api${path}.json`;
+  return `https://ergast.com/api${path}.json`;
 };
 
 const getUrl = (link) => {

@@ -5,6 +5,14 @@
     margin: rem(30px) rem(160px);
     display: flex;
     gap: rem(30px);
+
+    @include media(1200px) {
+      margin: rem(30px);
+    }
+
+    @include media(850px) {
+      flex-direction: column;
+    }
   }
 
   &__image {
@@ -60,6 +68,7 @@
   align-items: center;
   gap: rem(20px);
   margin: 0 rem(140px);
+  text-align: left;
 
   p {
     font-weight: 500;
@@ -76,5 +85,13 @@
     background-color: var(--color-highlight);
     font-family: var(--font-bakbak);
     font-weight: 800;
+  }
+
+  @include media(1200px) {
+    margin: 0 rem(30px);
+  }
+
+  @include media(850px) {
+    padding-left: rem(10px);
   }
 }

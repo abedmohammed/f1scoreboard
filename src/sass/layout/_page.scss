@@ -28,4 +28,11 @@
     width: 90vw;
     margin-top: rem(40px);
   }
+
+  &__copyright {
+    text-align: center;
+    color: var(--color-text);
+    font-family: var(--font-grotesk);
+    margin-bottom: rem(90px);
+  }
 }

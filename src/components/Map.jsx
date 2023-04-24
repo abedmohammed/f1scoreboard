@@ -21,7 +21,9 @@ const Map = ({ coords }) => {
   return (
     <MapContainer center={coords} zoom={13}>
       {coords && <SetViewOnClick coords={coords} />}
-      <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+      <TileLayer
+        url={`https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${process.env.TILE_KEY}`}
+      />
       <Marker icon={icon} position={coords}></Marker>
     </MapContainer>
   );

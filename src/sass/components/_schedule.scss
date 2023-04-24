@@ -47,7 +47,7 @@
   }
 
   &__list {
-    margin: rem(15px) rem(0px) rem(15px) rem(30px);
+    margin: 0 0 0 rem(30px);
     height: rem(700px);
 
     overflow-y: scroll;
@@ -77,10 +77,6 @@
       overflow-y: hidden;
 
       display: flex;
-    }
-
-    @include media(800px) {
-      margin: rem(15px) 0 0 0;
     }
   }
 

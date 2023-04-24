@@ -103,6 +103,7 @@ const RaceCard = ({ race }) => {
             />
 
             <EventCard
+              className="race"
               eventName="Race"
               day={localDate(race, { weekday: "short" })}
               time={localDate(race, {
@@ -148,6 +149,7 @@ const RaceCard = ({ race }) => {
               })}
             />
             <EventCard
+              className="race"
               eventName="Race"
               day={localDate(race, { weekday: "short" })}
               time={localDate(race, {

@@ -8,6 +8,14 @@
   padding: rem(15px) rem(25px);
   justify-content: space-between;
 
+  &.race {
+    // background-color: var(--color-highlight);
+    border: 1px solid var(--color-text-faint);
+    // .event__day{
+
+    // }
+  }
+
   p + p {
     border-left: solid 1px var(--color-text-faint);
   }

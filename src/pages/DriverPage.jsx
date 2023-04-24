@@ -90,7 +90,7 @@ const DriverPage = () => {
           <div className="stats">
             <ul>
               <li className="stats__row">
-                <p className="stats__title">Birth Date:</p>
+                <p className="stats__title">Date of Birth:</p>
                 <p className="stats__data">
                   {new Intl.DateTimeFormat("en-US", {
                     month: "long",

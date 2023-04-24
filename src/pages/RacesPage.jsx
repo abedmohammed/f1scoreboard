@@ -22,12 +22,10 @@ const RacesPage = () => {
   const [coords, setCoords] = useState();
   const navigate = useNavigate();
 
-  const getDate = (event) => {
-    return new Date(`${event.date} ${event.time}`);
-  };
-
   const localDate = (event, options) => {
-    return new Intl.DateTimeFormat(userLocale, options).format(getDate(event));
+    return new Intl.DateTimeFormat(userLocale, options).format(
+      Date.parse(`${event.date}T${event.time}`)
+    );
   };
 
   const races = useMemo(() => {

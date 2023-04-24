@@ -9,12 +9,10 @@ const RaceCard = ({ race }) => {
 
   const flag = getFlag(race.country);
 
-  const getDate = (event) => {
-    return new Date(`${event.date} ${event.time}`);
-  };
-
   const localDate = (event, options) => {
-    return new Intl.DateTimeFormat(userLocale, options).format(getDate(event));
+    return new Intl.DateTimeFormat(userLocale, options).format(
+      new Date(Date.parse(`${event.date}T${event.time}`))
+    );
   };
 
   const refreshClock = () => {
@@ -62,7 +60,7 @@ const RaceCard = ({ race }) => {
             {new Intl.DateTimeFormat(userLocale, {
               hour: "numeric",
               minute: "numeric",
-            }).format(time)}
+            }).format(new Date(time))}
           </p>
         </div>
       </div>

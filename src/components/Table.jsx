@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ data, tab }) => {
+const Table = ({ data, tab, className }) => {
   return (
-    <div className="table">
+    <div className={`table ${className}`}>
       {data.map((item) => (
         // LINKAGE
         <Link

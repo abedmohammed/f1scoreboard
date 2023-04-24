@@ -104,7 +104,7 @@ const RaceTables = () => {
       <div className="races__table">
         {navigation.state !== "loading" ? (
           results ? (
-            <Table data={results} tab={activeTab} />
+            <Table data={results} tab={activeTab} className="races-table" />
           ) : (
             <div className="races__na">
               <p>There is no data currently available for this race.</p>

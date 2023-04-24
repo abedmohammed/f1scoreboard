@@ -67,19 +67,15 @@
     }
 
     @include media(1300px) {
-      height: rem(180px);
-      margin: rem(15px) rem(30px);
+      height: rem(140px);
+
+      margin: rem(15px) 0 0 0;
       padding-bottom: rem(15px);
 
       overflow-x: scroll;
       overflow-y: hidden;
 
       display: flex;
-    }
-
-    @include media(1300px) {
-      height: rem(140px);
-      margin: rem(15px);
     }
 
     @include media(800px) {

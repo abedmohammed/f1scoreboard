@@ -14,11 +14,35 @@
   background-color: var(--color-highlight);
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   padding: 0 rem(50px);
   margin-right: rem(10px);
+
+  &__standings {
+    order: 0;
+  }
+  &__drivers {
+    order: 3;
+  }
+  &__home {
+    order: 2;
+  }
+  &__constructors {
+    order: 4;
+  }
+  &__races {
+    order: 1;
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  &__home--mobile {
+    display: none;
+  }
 
   &__logo {
     width: $logo-width;
@@ -44,47 +68,19 @@
     }
   }
 
-  @include media(680px) {
-    padding: 0 rem(15px);
-
-    &__logo {
-      width: rem(90px);
-    }
-  }
-
-  @include media(380px) {
-    padding: 0 rem(0px);
-  }
-
-  @include media(560px) {
-    & > a {
-      position: fixed;
-      z-index: 999;
-      // top: rem(20px);
-      top: 10px;
-      left: 10px;
-      top: 1dvh;
-      left: 1dvh;
-      // transform: translateX(-50%);
-      // width: rem(80px);
-      width: rem(120px);
-      height: rem(50px);
-      display: grid;
-      place-content: center;
-
-      background-color: var(--color-highlight);
-      border-radius: 5px;
-    }
-
-    &__logo {
-      width: rem(110px);
-    }
-  }
-
   &__links {
     display: flex;
     justify-content: space-around;
-    flex: 1;
+    align-items: center;
+    flex-basis: 60%;
+
+    @include media(1200px) {
+      flex-basis: 80%;
+    }
+
+    @include media(850px) {
+      flex-basis: 100%;
+    }
   }
 
   &__link {
@@ -102,6 +98,61 @@
 
     @include media(380px) {
       font-size: rem(16px);
+    }
+  }
+
+  @include media(680px) {
+    padding: 0 rem(15px);
+
+    &__logo {
+      width: rem(90px);
+    }
+  }
+
+  @include media(380px) {
+    padding: 0 rem(0px);
+  }
+
+  @include media(560px) {
+    &__logo {
+      width: rem(75px);
+    }
+
+    &__link {
+      p {
+        font-size: rem(12px);
+      }
+    }
+
+    &__icon {
+      display: block;
+      filter: brightness(0) invert(1);
+      width: rem(30px);
+      margin: 0 auto;
+    }
+
+    &__home {
+      display: none;
+
+      &--mobile {
+        display: block;
+      }
+    }
+
+    &__standings {
+      order: 1;
+    }
+    &__drivers {
+      order: 2;
+    }
+    &__home {
+      order: 0;
+    }
+    &__constructors {
+      order: 3;
+    }
+    &__races {
+      order: 4;
     }
   }
 }

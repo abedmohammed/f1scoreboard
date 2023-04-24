@@ -9,5 +9,9 @@
     @include media(900px) {
       padding: 0 rem(30px);
     }
+
+    @include media(600px) {
+      padding: 0;
+    }
   }
 }

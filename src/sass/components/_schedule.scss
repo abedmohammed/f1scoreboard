@@ -172,5 +172,9 @@
   &__pattern {
     flex-basis: 100%;
     @include gridLines(var(--color-section-background), white, 0.1);
+
+    @include media(1300px) {
+      display: none;
+    }
   }
 }

@@ -63,10 +63,12 @@
       // top: rem(20px);
       top: 10px;
       left: 10px;
+      top: 1dvh;
+      left: 1dvh;
       // transform: translateX(-50%);
       // width: rem(80px);
-      width: rem(90px);
-      height: rem(30px);
+      width: rem(120px);
+      height: rem(50px);
       display: grid;
       place-content: center;
 
@@ -75,7 +77,7 @@
     }
 
     &__logo {
-      width: rem(70px);
+      width: rem(110px);
     }
   }
 

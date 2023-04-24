@@ -10,7 +10,6 @@
   &__title {
     flex: 1 0 60%;
     text-align: left;
-    font-family: var(--font-grotesk);
     font-weight: 600;
   }
 
@@ -23,5 +22,6 @@
     flex: 1 0 40%;
     text-align: left;
     margin-left: rem(10px);
+    font-weight: 300;
   }
 }

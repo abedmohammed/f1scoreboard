@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/abedmohammed/f1scoreboard">
+    <img src="https://github.com/abedmohammed/f1scoreboard/blob/main/src/assets/images/f1logo.png" alt="Logo" width="100" height="40">
+  </a>
 
-## Available Scripts
+<h1 align="center">F1 Scoreboard</h1>
 
-In the project directory, you can run:
+  <p align="center">
+    F1Scoreboard is a React-based website that provides live F1 racing data and updates, including driver and team rankings, sourced from multiple external data sources.
+    <br />
+    <br />
+    <a href="https://f1scoreboard.com/">f1scoreboard.com</a>
+  </p>
+</div>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- Preview -->
+## 📷 Preview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[<img src="https://archive.org/download/placeholder-image/placeholder-image.jpg" alt="Screenshot to demo the site">](https://f1scoreboard.com/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👩‍💻 Built With
 
-### `npm run build`
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://react.dev/)
+[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/en/main)
+[![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)](https://sass-lang.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- Showcase -->
+## 👨‍🏫 Showcase
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can visit the website and use the chat at [https://f1scoreboard.com/](https://f1scoreboard.com/)
 
-### `npm run eject`
+### Races' Information
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img align="center" src="https://archive.org/download/placeholder-image/placeholder-image.jpg" alt="Home page of the website" width="550" height="450">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔴 The home page displays the next latest race with location information and the time of each event. In the "Races" page, a list of all races in the current season is available. Each race is accompanied with a map showing the location of the race and tables for displaying the results of each event.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br />
 
-## Learn More
+### Drivers' and Constructors' Information
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img align="center" src="https://archive.org/download/placeholder-image/placeholder-image.jpg" alt="Standings page of the website" width="550" height="450">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br />
 
-### Code Splitting
+🔴 The "Standings" page has a table style format to display the list of each driver and their total points as well as the list of each team. The individual "Driver" and "Constructors" pages have a display of each driver and team in a card like format. Each card can be clicked on to display more information about the driver or team.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br />
 
-### Analyzing the Bundle Size
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- ACKNOWLEDGMENTS -->
+## 🛠 Tools and Development
 
-### Making a Progressive Web App
+This project was built around React and the [react-router](https://reactrouter.com/en/main) library. The goal of this project was to improve my skills in working with RESTful API's as well as explore a different method of fetching data with the react-router loaders. I also constantly get lost trying to find F1 race times so this is something I actually have a use for. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### ☕ API
 
-### Advanced Configuration
+This project was initially supposed to work around the [Ergast Developer API](http://ergast.com/mrd/) which sends up-to-date F1 race and standing data. Most of the data and listings come from this API, however, I was still missing key information and elements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Since I display the flags for each driver in multiple places around the site, I created `CountriesContext.js` which allows me to get the flags and nationalities of any driver using their demonyms (Ergast API only returned the demonym of each driver, such as "Dutch" or "German"). Since I would have to loop through each country to retrieve country data from the demonyms, I opted to using a context as that information would only have to be loaded through once per page.
 
-### Deployment
+For the specific driver and contructor page, the Ergast API also lacked some more detailed information that I would of liked to display. Such as the number of career points, total wins, grand prix's entered, etc. The only source I was able to find to retrieve this data was through wikipedia. Using the[ MediaWiki Action API](https://www.mediawiki.org/wiki/API:Main_page), I constructed a hook which retrieved the infobox data (the rectangle on the right side of wikipedia articles) from any wikipedia page based on the title in the infobox. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 💅 Sass
 
-### `npm run build` fails to minify
+I have tried multiple Sass folder structures in the past but after some research I have found a system that works really well for me. This is using a modified 7-in-1 structure that uses Sass' new `@forward` and `@use` imports. The structure kept my scss very organized, minimized reused code, but still allowed me to modify or make unique elements. More on this structure here: [A Modern Sass Folder Structure](https://dev.to/dostonnabotov/a-modern-sass-folder-structure-330f).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br />
+<br />
+
+<div align="center">
+  Mohammed Abed 💠 abedmohammed353@gmail.com 💠 https://github.com/abedmohammed
+</div>

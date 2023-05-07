@@ -72,9 +72,22 @@ Since I display the flags for each driver in multiple places around the site, I 
 
 For the specific driver and contructor page, the Ergast API also lacked some more detailed information that I would of liked to display. Such as the number of career points, total wins, grand prix's entered, etc. The only source I was able to find to retrieve this data was through wikipedia. Using the[ MediaWiki Action API](https://www.mediawiki.org/wiki/API:Main_page), I constructed a hook which retrieved the infobox data (the rectangle on the right side of wikipedia articles) from any wikipedia page based on the title in the infobox. 
 
+To fetch this data, I used react-router's new v6 loaders. As explained [here](https://reactrouter.com/en/main/route/loader): "As the user navigates around the app, the loaders for the next matching branch of routes will be called in parallel and their data made available to components through useLoaderData". This made it extremely easy to handle data loading and handle transitions as well as errors.
+
 ### 💅 Sass
 
 I have tried multiple Sass folder structures in the past but after some research I have found a system that works really well for me. This is using a modified 7-in-1 structure that uses Sass' new `@forward` and `@use` imports. The structure kept my scss very organized, minimized reused code, but still allowed me to modify or make unique elements. More on this structure here: [A Modern Sass Folder Structure](https://dev.to/dostonnabotov/a-modern-sass-folder-structure-330f).
+
+I used to always use 62.5% html font-size trick however after [this read](https://fedmentor.dev/posts/rem-html-font-size-hack/) I have decided to use another method for my rem units. Using this scss function, I am able to call `rem(##px)` anywhere as a substitute for calculating the rem units myself. This function automatically takes in any pixel amount and converts it to rem, all while being visually self-explanatory to any other developers.
+
+```
+@use "sass:math";
+
+@function rem($size) {
+  $remSize: math.div($size, 16px);
+  @return #{$remSize}rem;
+}
+```
 
 <br />
 <br />

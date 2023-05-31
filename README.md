@@ -37,13 +37,13 @@ You can visit the website and use the chat at [https://f1scoreboard.com/](https:
 
 ### Races' Information
 
-<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/7e3abddb-9d02-4e05-90f8-b58e31ed4062" alt="Races page of the website" width="960" height="540">
+<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/7e3abddb-9d02-4e05-90f8-b58e31ed4062" alt="Races page of the website">
 
 <br />
 
 <br />
 
-<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/56aa9738-7f11-4d8c-9e55-d6e54ba5c623" alt="Races page of the website showing race results and map" width="960" height="540">
+<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/56aa9738-7f11-4d8c-9e55-d6e54ba5c623" alt="Races page of the website showing race results and map">
 
 <br />
 
@@ -55,13 +55,13 @@ You can visit the website and use the chat at [https://f1scoreboard.com/](https:
 
 ### Drivers' and Constructors' Information
 
-<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/eae7b13b-eff6-4b3c-b8a0-ef019d9d5f46" alt="Constructors page displaying all of the teams" width="960" height="540">
+<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/eae7b13b-eff6-4b3c-b8a0-ef019d9d5f46" alt="Constructors page displaying all of the teams">
 
 <br />
 
 <br />
 
-<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/483c0bf4-bfd1-4b9f-ab52-073c9d5922a9" alt="Max Verstappen driver information" width="960" height="540">
+<img align="center" src="https://github.com/abedmohammed/f1scoreboard/assets/72363970/483c0bf4-bfd1-4b9f-ab52-073c9d5922a9" alt="Max Verstappen driver information">
 
 <br />
 

@@ -33,7 +33,7 @@
 <!-- Showcase -->
 ## 👨‍🏫 Showcase
 
-You can visit the website and use the chat at [https://f1scoreboard.com/](https://f1scoreboard.com/)
+You can visit the website at [https://f1scoreboard.com/](https://f1scoreboard.com/)
 
 ### Races' Information
 

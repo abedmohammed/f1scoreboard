@@ -107,5 +107,5 @@ I used to always use 62.5% html font-size trick however after [this read](https:
 <br />
 
 <div align="center">
-  Mohammed Abed 💠 abedmohammed353@gmail.com 💠 https://github.com/abedmohammed
+  Mohammed Abed 💠 abedm@mcmaster.ca 💠 https://github.com/abedmohammed
 </div>

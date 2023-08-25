@@ -18,6 +18,7 @@ import MAG from "../assets/images/headshots/MAG.avif";
 import ALB from "../assets/images/headshots/ALB.avif";
 import SAR from "../assets/images/headshots/SAR.avif";
 import DEV from "../assets/images/headshots/DEV.avif";
+import RIC from "../assets/images/headshots/RIC.avif";
 
 import VERFull from "../assets/images/fullbody/VERPortrait.avif";
 import PERFull from "../assets/images/fullbody/PERPortrait.avif";
@@ -39,6 +40,7 @@ import MAGFull from "../assets/images/fullbody/MAGPortrait.avif";
 import ALBFull from "../assets/images/fullbody/ALBPortrait.avif";
 import SARFull from "../assets/images/fullbody/SARPortrait.avif";
 import DEVFull from "../assets/images/fullbody/DEVPortrait.avif";
+import RICFull from "../assets/images/fullbody/RICPortrait.avif";
 
 import alfaImg from "../assets/images/logos/alfa.png";
 import alphatauriImg from "../assets/images/logos/alphatauri.png";
@@ -63,6 +65,10 @@ import mercedesCar from "../assets/images/cars/mercedesCar.avif";
 import red_bullCar from "../assets/images/cars/red_bullCar.avif";
 
 export const driversExtra = {
+  RIC: {
+    image: RIC,
+    fullBodyImage: RICFull,
+  },
   VER: {
     image: VER,
     fullBodyImage: VERFull,

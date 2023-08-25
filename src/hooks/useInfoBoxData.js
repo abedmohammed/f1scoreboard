@@ -43,7 +43,7 @@ const useInfoBoxData = (wikiData) => {
   };
 
   const getInfoBoxImage = () => {
-    let startStr = 'class="image"';
+    let startStr = 'class="mw-file-description"';
 
     const pos = wikiData.indexOf(startStr) + startStr.length;
     const firstXmlString = wikiData.substring(

@@ -44,8 +44,10 @@ import DEVFull from "../assets/images/fullbody/DEVPortrait.avif";
 import RICFull from "../assets/images/fullbody/RICPortrait.avif";
 import LAWFull from "../assets/images/fullbody/LAWPortrait.jpg";
 
-import alfaImg from "../assets/images/logos/alfa.png";
+// import alfaImg from "../assets/images/logos/alfa.png";
+import sauberImg from "../assets/images/logos/sauber.png";
 import alphatauriImg from "../assets/images/logos/alphatauri.png";
+import rbImg from "../assets/images/logos/rb.avif";
 import alpineImg from "../assets/images/logos/alpine.png";
 import aston_martinImg from "../assets/images/logos/aston_martin.png";
 import ferrariImg from "../assets/images/logos/ferrari.png";
@@ -56,7 +58,8 @@ import red_bullImg from "../assets/images/logos/red_bull.png";
 import williamsImg from "../assets/images/logos/williams.png";
 
 import williamsCar from "../assets/images/cars/williamsCar.avif";
-import alfaCar from "../assets/images/cars/alfaCar.avif";
+// import alfaCar from "../assets/images/cars/alfaCar.avif";
+import sauberCar from "../assets/images/cars/sauberCar.avif";
 import alphatauriCar from "../assets/images/cars/alphatauriCar.avif";
 import alpineCar from "../assets/images/cars/alpineCar.avif";
 import aston_martinCar from "../assets/images/cars/aston_martinCar.avif";
@@ -159,16 +162,16 @@ export const driversExtra = {
 };
 
 export const constructorsExtra = {
-  alfa: {
-    logo: alfaImg,
+  sauber: {
+    logo: sauberImg,
     drivers: [
       { name: "Valtteri Bottas", image: BOT },
       { name: "Zhou Guanyu", image: ZHO },
     ],
-    car: alfaCar,
+    car: sauberCar,
   },
-  alphatauri: {
-    logo: alphatauriImg,
+  rb: {
+    logo: rbImg,
     drivers: [
       { name: "Nyck De Varies", image: DEV },
       { name: "Yuki Tsunoda", image: TSU },

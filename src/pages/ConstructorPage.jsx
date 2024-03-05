@@ -28,6 +28,7 @@ const ConstructorPage = () => {
       }
     )[0];
 
+  console.log(constructorData);
   const year = data.MRData.StandingsTable.season;
   const constructor = {
     name: constructorData.Constructor.name,
@@ -56,6 +57,8 @@ const ConstructorPage = () => {
     polePositions: getInfoBoxData("Pole positions</a>"),
     constructorChampionships: getInfoBoxData("Championships</a>"),
   };
+
+  console.log(constructor);
 
   return (
     <PageWrapper className="constructor" title={constructor.name}>

@@ -24,7 +24,7 @@ const RacesPage = () => {
 
   const localDate = (event, options) => {
     return new Intl.DateTimeFormat(userLocale, options).format(
-      Date.parse(`${event.date}T${event.time}`)
+      Date.parse(`${event.date}T${event.time || "00:00:00Z"}`)
     );
   };
 

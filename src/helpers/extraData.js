@@ -46,7 +46,7 @@ import LAWFull from "../assets/images/fullbody/LAWPortrait.jpg";
 
 // import alfaImg from "../assets/images/logos/alfa.png";
 import sauberImg from "../assets/images/logos/sauber.png";
-import alphatauriImg from "../assets/images/logos/alphatauri.png";
+// import alphatauriImg from "../assets/images/logos/alphatauri.png";
 import rbImg from "../assets/images/logos/rb.avif";
 import alpineImg from "../assets/images/logos/alpine.png";
 import aston_martinImg from "../assets/images/logos/aston_martin.png";
